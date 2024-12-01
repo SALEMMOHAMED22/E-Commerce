@@ -3,6 +3,7 @@
 use App\Http\Controllers\Dashboard\Auth\AuthController;
 use App\Http\Controllers\Dashboard\Auth\ForgetPasswordController;
 use App\Http\Controllers\Dashboard\Auth\ResetPasswordController;
+use App\Http\Controllers\Dashboard\RoleController;
 use App\Http\Controllers\Dashboard\WelcomeController;
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Support\Facades\Route;
@@ -46,6 +47,13 @@ Route::group(
 
             Route::get('welcome', [WelcomeController::class, 'index'])->name('welcome');
         });
+
+         ############################ Roles routes ################################
+        //   Route::group(['middleware' => 'can:brands'] , function(){
+
+
+            Route::resource('roles', RoleController::class);
+        // });
     }
 );
 
@@ -53,3 +61,4 @@ Route::group(
 Route::get('test', function () {
     return view('dashboard.auth.password.email');
 });
+
