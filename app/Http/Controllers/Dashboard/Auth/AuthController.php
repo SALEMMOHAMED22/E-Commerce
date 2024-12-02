@@ -7,7 +7,7 @@ use App\Services\Auth\AuthService;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
-use App\Http\Requests\CreateAdminRequest;
+use App\Http\Requests\LoginAdminRequest;
 use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Routing\Controllers\HasMiddleware;
 
@@ -30,7 +30,7 @@ class AuthController extends Controller implements HasMiddleware
         return view('dashboard.auth.login');
     }
 
-    public function login(CreateAdminRequest $request){
+    public function login(LoginAdminRequest $request){
 
         $credintials = $request->only('email' , 'password');
         if($this->authService->login($credintials ,'admin', $request->remember)){
