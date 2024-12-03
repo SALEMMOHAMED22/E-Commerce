@@ -56,8 +56,9 @@ Route::group(
             Route::resource('roles', RoleController::class);
         // });
 
-        Route::resource('admins' , [AdminController::class]);
-        Route::get('admins/{id}/{status}' , [AdminController::class , 'changeStatus'])->name('admins.status');
+        Route::resource('admins' , AdminController::class);
+        Route::get('admins/{id}/status' , [AdminController::class , 'changeStatus'])->name('admins.changeStatus');
+       
     }
 );
 

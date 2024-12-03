@@ -21,8 +21,12 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call([
-            RoleSeeder::class,
-            AdminSeeder::class,
+            // RoleSeeder::class,
+            // AdminSeeder::class,
+
+            CountrySeeder::class,
+            GovernorateSeeder::class,
+            CitySeeder::class,
         ]);
     }
 }

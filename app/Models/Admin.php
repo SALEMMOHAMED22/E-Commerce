@@ -22,6 +22,7 @@ class Admin extends Authenticatable
         'email',
         'password',
         'role_id',
+        'status',
     ];
 
     /**
@@ -49,11 +50,16 @@ class Admin extends Authenticatable
 
     public function role()
     {
-        return $this->belongsTo(Role::class, 'role_id');
+        return $this->belongsTo(Role::class,'role_id');
+    }
+
+    public function getStatusAttribute($value){
+        return $value == 1 ? 'Active' : 'Inactve';
     }
 
     public function hasAccess($config_permission){
         $role = $this->role;
+        
         if(!$role){
             return false;
         }

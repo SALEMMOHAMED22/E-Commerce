@@ -29,7 +29,7 @@ class RoleRepository
     public function  getRoles()
     {
 
-        $roles = Role::select('id', 'role', 'permission')->paginate(6);
+        $roles = Role::select('id','role','permission')->paginate(6);
         return $roles;
     }
 

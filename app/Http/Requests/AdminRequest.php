@@ -22,13 +22,20 @@ class AdminRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
+        $data = [
             'name' => ['required', 'min:2', 'max:60'],
             'email' => ['required', 'email', 'max:100', Rule::unique('admins', 'email')->ignore($this->id)],
-            'password' => ['required', 'confirmed', 'min:8', 'max:150'],
-            'password_confirmation' => ['required'],
-            'role_id' => ['required', 'exists: roles,id'],
-            'status' => ['in:true,false,off,on'],
+            'role_id' => ['required', 'exists:roles,id'],
+            'status' => ['in:1,0'],
         ];
+
+        if (in_array($this->method(), ['PUT', 'PATCH'])) {
+            $data['password'] = ['nullable', 'confirmed', 'min:8', 'max:100'];
+            $data['password_confirmation'] = ['nullable'];
+        } else {
+            $data['password'] = ['required', 'confirmed', 'min:8', 'max:100'];
+            $data['password_confirmation'] = ['required'];
+        }
+        return $data;
     }
 }

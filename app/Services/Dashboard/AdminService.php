@@ -43,6 +43,13 @@ class AdminService
         if(!$admin){
             return abort(404);
            }
+
+           if($data['password'] == null){
+            unset($data['password']);
+           }
+          
+
+       
       $admin =  $this->adminRepository->updateAdmin($data,$admin);
       if(!$admin){
         return false;
@@ -60,11 +67,13 @@ class AdminService
            return $admin;
     }   
 
-    public function changeStatus($id , $status){
+    public function changeStatus($id){
         $admin = $this->adminRepository->getAdmin($id);
         if(!$admin){
             return abort(404);
            }
+
+           $admin->status == 'Active' ? $status= 0 : $status = 1;
            $status = $this->adminRepository->changeStatus($admin , $status);
            return $status;
     }
