@@ -3,8 +3,9 @@
 namespace Database\Seeders;
 
 use App\Models\Governorate;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\ShippingGovernorate;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class GovernorateSeeder extends Seeder
 {
@@ -218,12 +219,75 @@ class GovernorateSeeder extends Seeder
                 "name" => ['ar' => "سوهاج", 'en' => "Sohag"],
                 "country_id" => 1
             ],
-           
+            // suadia
+            ['name' => ['en' => 'Riyadh', 'ar' => 'الرياض'], 'country_id' => 2],
+            ['name' => ['en' => 'Makkah', 'ar' => 'مكة المكرمة'], 'country_id' => 2],
+            ['name' => ['en' => 'Medina', 'ar' => 'المدينة المنورة'], 'country_id' => 2],
+            ['name' => ['en' => 'Eastern Province', 'ar' => 'المنطقة الشرقية'], 'country_id' => 2],
+            ['name' => ['en' => 'Asir', 'ar' => 'عسير'], 'country_id' => 2],
+            ['name' => ['en' => 'Tabuk', 'ar' => 'تبوك'], 'country_id' => 2],
+            ['name' => ['en' => 'Hail', 'ar' => 'حائل'], 'country_id' => 2],
+            ['name' => ['en' => 'Al-Jawf', 'ar' => 'الجوف'], 'country_id' => 2],
+            ['name' => ['en' => 'Jizan', 'ar' => 'جازان'], 'country_id' => 2],
+            ['name' => ['en' => 'Najran', 'ar' => 'نجران'], 'country_id' => 2],
+            ['name' => ['en' => 'Al-Baha', 'ar' => 'الباحة'], 'country_id' => 2],
+            ['name' => ['en' => 'Northern Borders', 'ar' => 'الحدود الشمالية'], 'country_id' => 2],
+            ['name' => ['en' => 'Al-Qassim', 'ar' => 'القصيم'], 'country_id' => 2],
+
+
+            // sudan
+            ['name' => ['en' => 'Khartoum', 'ar' => 'الخرطوم'], 'country_id' => 3],
+            ['name' => ['en' => 'Gezira', 'ar' => 'الجزيرة'], 'country_id' => 3],
+            ['name' => ['en' => 'River Nile', 'ar' => 'نهر النيل'], 'country_id' => 3],
+            ['name' => ['en' => 'North Kordofan', 'ar' => 'شمال كردفان'], 'country_id' => 3],
+            ['name' => ['en' => 'South Kordofan', 'ar' => 'جنوب كردفان'], 'country_id' => 3],
+            ['name' => ['en' => 'North Darfur', 'ar' => 'شمال دارفور'], 'country_id' => 3],
+            ['name' => ['en' => 'South Darfur', 'ar' => 'جنوب دارفور'], 'country_id' => 3],
+            ['name' => ['en' => 'West Darfur', 'ar' => 'غرب دارفور'], 'country_id' => 3],
+            ['name' => ['en' => 'East Darfur', 'ar' => 'شرق دارفور'], 'country_id' => 3],
+            ['name' => ['en' => 'Central Darfur', 'ar' => 'وسط دارفور'], 'country_id' => 3],
+            ['name' => ['en' => 'Northern State', 'ar' => 'الولاية الشمالية'], 'country_id' => 3],
+            ['name' => ['en' => 'White Nile', 'ar' => 'النيل الأبيض'], 'country_id' => 3],
+            ['name' => ['en' => 'Blue Nile', 'ar' => 'النيل الأزرق'], 'country_id' => 3],
+            ['name' => ['en' => 'Sennar', 'ar' => 'سنار'], 'country_id' => 3],
+            ['name' => ['en' => 'Kassala', 'ar' => 'كسلا'], 'country_id' => 3],
+            ['name' => ['en' => 'Gedaref', 'ar' => 'القضارف'], 'country_id' => 3],
+            ['name' => ['en' => 'West Kordofan', 'ar' => 'غرب كردفان'], 'country_id' => 3],
+
+            // emarats
+            ['name' => ['en' => 'Abu Dhabi', 'ar' => 'أبوظبي'], 'country_id' => 4],
+            ['name' => ['en' => 'Dubai', 'ar' => 'دبي'], 'country_id' => 4],
+            ['name' => ['en' => 'Sharjah', 'ar' => 'الشارقة'], 'country_id' => 4],
+            ['name' => ['en' => 'Ajman', 'ar' => 'عجمان'], 'country_id' => 4],
+            ['name' => ['en' => 'Umm Al Quwain', 'ar' => 'أم القيوين'], 'country_id' => 4],
+            ['name' => ['en' => 'Ras Al Khaimah', 'ar' => 'رأس الخيمة'], 'country_id' => 4],
+            ['name' => ['en' => 'Fujairah', 'ar' => 'الفجيرة'], 'country_id' => 4],
+
+            // moarco
+            ['name' => ['en' => 'Rabat-Salé-Kénitra', 'ar' => 'الرباط-سلا-القنيطرة'], 'country_id' => 5],
+            ['name' => ['en' => 'Casablanca-Settat', 'ar' => 'الدار البيضاء-سطات'], 'country_id' => 5],
+            ['name' => ['en' => 'Marrakech-Safi', 'ar' => 'مراكش-آسفي'], 'country_id' => 5],
+            ['name' => ['en' => 'Fès-Meknès', 'ar' => 'فاس-مكناس'], 'country_id' => 5],
+            ['name' => ['en' => 'Tanger-Tetouan-Al Hoceima', 'ar' => 'طنجة-تطوان-الحسيمة'], 'country_id' => 5],
+            ['name' => ['en' => 'Oriental', 'ar' => 'الشرق'], 'country_id' => 5],
+            ['name' => ['en' => 'Béni Mellal-Khénifra', 'ar' => 'بني ملال-خنيفرة'], 'country_id' => 5],
+            ['name' => ['en' => 'Drâa-Tafilalet', 'ar' => 'درعة-تافيلالت'], 'country_id' => 5],
+            ['name' => ['en' => 'Souss-Massa', 'ar' => 'سوس-ماسة'], 'country_id' => 5],
+            ['name' => ['en' => 'Guelmim-Oued Noun', 'ar' => 'كلميم-واد نون'], 'country_id' => 5],
+            ['name' => ['en' => 'Laâyoune-Sakia El Hamra', 'ar' => 'العيون-الساقية الحمراء'], 'country_id' => 5],
+            ['name' => ['en' => 'Dakhla-Oued Ed-Dahab', 'ar' => 'الداخلة-وادي الذهب'], 'country_id' => 5],
+
+
         ];
 
-        foreach($governorates as $governorate){
+        foreach ($governorates as $governorate) {
 
-            Governorate::create($governorate);
+        $gov =    Governorate::create($governorate);
+
+        ShippingGovernorate::create([
+            'governorate_id' => $gov->id,
+            'price' => 100,
+        ]);
         }
     }
 }

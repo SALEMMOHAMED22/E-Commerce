@@ -3,9 +3,10 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
 class Admin extends Authenticatable
 {
@@ -57,17 +58,37 @@ class Admin extends Authenticatable
         return $value == 1 ? 'Active' : 'Inactve';
     }
 
-    public function hasAccess($config_permission){
-        $role = $this->role;
+    // public function hasAccess($config_permission){
+    //     $role = $this->role;
         
-        if(!$role){
-            return false;
-        }
+    //     if(!$role){
+    //         return false;
+    //     }
 
-        foreach($role->permission as $permission){
-            if($config_permission == $permission ?? false){
-                return true;
-            }
-        }
+    //     foreach($role->permission as $permission){
+    //         if($config_permission == $permission){
+    //             return true;
+    //         }
+    //     }
+    // }
+    public function hasAccess($config_permission)
+{
+    $role = $this->role;
+
+    if (!$role) {
+        Log::info("User has no role assigned");
+        return false; // User has no role
     }
+
+    Log::info("User's role: {$role->role['en']}");
+
+    if (in_array($config_permission, $role->permission)) {
+        Log::info("Permission {$config_permission} granted");
+        return true;
+    }
+
+    Log::info("Permission {$config_permission} denied");
+    return false;
+}
+
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\Dashboard\Auth\ForgetPasswordController;
 use App\Http\Controllers\Dashboard\Auth\ResetPasswordController;
 use App\Http\Controllers\Dashboard\RoleController;
 use App\Http\Controllers\Dashboard\WelcomeController;
+use App\Http\Controllers\Dashboard\WorldController;
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -50,20 +51,31 @@ Route::group(
         });
 
          ############################ Roles routes ################################
-        //   Route::group(['middleware' => 'can:roles'] , function(){
+          Route::group(['middleware' => 'can:roles'] , function(){
 
 
             Route::resource('roles', RoleController::class);
-        // });
+        });
 
         Route::resource('admins' , AdminController::class);
         Route::get('admins/{id}/status' , [AdminController::class , 'changeStatus'])->name('admins.changeStatus');
        
+        Route::controller(WorldController::class)->group(function(){
+
+          Route::prefix('countries')->name('countries.')->group(function(){
+            Route::get('/' , 'getAllCountries' )->name('index');
+            Route::get('{country_id}/governorate' , 'getAllGovernoratesByCountryId' )->name('governorates.index');
+            Route::get('{gov_id}/cities' , 'getAllCitiesByGovernorateId' )->name('citties.index');
+            Route::get('change-status/{country_id}' , 'changeStatus' )->name('status');
+          });
+
+          Route::prefix('governorates')->name('governorates.')->group(function(){
+            Route::get('change-status/{gov_id}' , 'changeGovStatus' )->name('status');
+            Route::put('shipping-price' , 'changeShippingPrice')->name('shipping-price');
+
+          });
+        });
     }
 );
 
-
-Route::get('test', function () {
-    return view('dashboard.auth.password.email');
-});
 

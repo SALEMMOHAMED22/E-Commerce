@@ -812,5 +812,6 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
   <!-- ////////////////////////////////////////////////////////////////////////////-->
   @include('layouts.dashboard._footer')
  @include('layouts.dashboard._script')
+ @stack('js')
 </body>
 </html>
