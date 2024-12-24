@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Governorate;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 use App\Models\ShippingGovernorate;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
@@ -14,6 +15,10 @@ class GovernorateSeeder extends Seeder
      */
     public function run(): void
     {
+        
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        Governorate::truncate();
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
         $governorates = [
             [
                 "id" => "1",

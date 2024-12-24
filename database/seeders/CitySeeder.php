@@ -3,8 +3,9 @@
 namespace Database\Seeders;
 
 use App\Models\City;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class CitySeeder extends Seeder
 {
@@ -13,6 +14,10 @@ class CitySeeder extends Seeder
      */
     public function run(): void
     {
+        
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        City::truncate();
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
         $cities = [
             ["id" => "1", "governorate_id" => "1", "name" => ['en' => "15 May", 'ar' => '"15 مايو"']],
             ["id" => "2", "governorate_id" => "1", "name" => ["ar" => "الازبكية", "en" => "Al Azbakeyah"]],

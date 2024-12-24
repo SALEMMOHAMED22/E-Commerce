@@ -4,11 +4,14 @@ use App\Http\Controllers\Dashboard\AdminController;
 use App\Http\Controllers\Dashboard\Auth\AuthController;
 use App\Http\Controllers\Dashboard\Auth\ForgetPasswordController;
 use App\Http\Controllers\Dashboard\Auth\ResetPasswordController;
+use App\Http\Controllers\dashboard\BrandController;
+use App\Http\Controllers\dashboard\CategoryController;
 use App\Http\Controllers\Dashboard\RoleController;
 use App\Http\Controllers\Dashboard\WelcomeController;
 use App\Http\Controllers\Dashboard\WorldController;
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Validation\Rules\Can;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 Route::get('/', function () {
@@ -45,37 +48,52 @@ Route::group(
         ############################ protected routes ################################
         Route::group(['middleware' => 'auth:admin'], function () {
 
-         ############################ welcome routes ################################
+            ############################ welcome routes ################################
 
             Route::get('welcome', [WelcomeController::class, 'index'])->name('welcome');
         });
 
-         ############################ Roles routes ################################
-          Route::group(['middleware' => 'can:roles'] , function(){
+        ############################ Roles routes ################################
+        //   Route::group(['middleware' => 'can:roles'] , function(){
 
 
-            Route::resource('roles', RoleController::class);
+        Route::resource('roles', RoleController::class);
+        // });
+
+        Route::resource('admins', AdminController::class);
+        Route::get('admins/{id}/status', [AdminController::class, 'changeStatus'])->name('admins.changeStatus');
+
+        ######################### Shipping Start #################################
+        Route::controller(WorldController::class)->group(function () {
+
+            Route::prefix('countries')->name('countries.')->group(function () {
+                Route::get('/', 'getAllCountries')->name('index');
+                Route::get('{country_id}/governorate', 'getAllGovernoratesByCountryId')->name('governorates.index');
+                Route::get('{gov_id}/cities', 'getAllCitiesByGovernorateId')->name('citties.index');
+                Route::get('change-status/{country_id}', 'changeStatus')->name('status');
+            });
+
+            Route::prefix('governorates')->name('governorates.')->group(function () {
+                Route::get('change-status/{gov_id}', 'changeGovStatus')->name('status');
+                Route::put('shipping-price', 'changeShippingPrice')->name('shipping-price');
+            });
         });
+        ######################### Shipping End #################################
 
-        Route::resource('admins' , AdminController::class);
-        Route::get('admins/{id}/status' , [AdminController::class , 'changeStatus'])->name('admins.changeStatus');
-       
-        Route::controller(WorldController::class)->group(function(){
+        ######################### Categories Start #################################
+        // Route::group(['middleware' => 'Can:categories'] , function(){
+            Route::resource('categories' , CategoryController::class)->except('show');
+            Route::get('categories-all' , [CategoryController::class , 'getAll'])
+            ->name('categories.all');
+        // });
+        ######################### Categories End #################################
 
-          Route::prefix('countries')->name('countries.')->group(function(){
-            Route::get('/' , 'getAllCountries' )->name('index');
-            Route::get('{country_id}/governorate' , 'getAllGovernoratesByCountryId' )->name('governorates.index');
-            Route::get('{gov_id}/cities' , 'getAllCitiesByGovernorateId' )->name('citties.index');
-            Route::get('change-status/{country_id}' , 'changeStatus' )->name('status');
-          });
+        ######################### Brands Start #################################
+        // Route::group(['middleware' => 'can:brands'] , function(){
+            Route::resource('brands' , BrandController::class);
+            Route::get('brands-all' , [BrandController::class , 'getAll'] )->name('brands.all');
+        // });
+        ######################### Brands End #################################
 
-          Route::prefix('governorates')->name('governorates.')->group(function(){
-            Route::get('change-status/{gov_id}' , 'changeGovStatus' )->name('status');
-            Route::put('shipping-price' , 'changeShippingPrice')->name('shipping-price');
-
-          });
-        });
     }
 );
-
-

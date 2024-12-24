@@ -9,16 +9,20 @@ class WorldRepository
 {
 
     public function getAllCountries(){
-        $countries = Country::when(!empty(request()->keyword),function($query){
+        $countries = Country::withCount(['governorates' , 'users'])->when(!empty(request()->keyword),function($query){
             $query->where('name' , 'like' , '%'.request()->keyword.'%');
-        })-> select('id' , 'name' , 'phone_code' , 'is_active' , 'flag_code')->paginate(5);
+        })->paginate(5);
+       
         return $countries;
     }
 
     public function getAllGovernorates($country){
-        $governorates = $country->governorates()->when(!empty(request()->keyword),function($query){
+        $governorates = $country->governorates()
+        ->with(['country' , 'shippingPrice'])
+        ->withCount(['cities' , 'users'])->when(!empty(request()->keyword),function($query){
             $query->where('name' , 'like' , '%'.request()->keyword.'%');
         })->paginate(5);
+        
         return $governorates;
     }
 

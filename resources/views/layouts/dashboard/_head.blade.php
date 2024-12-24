@@ -36,6 +36,11 @@
   <!-- BEGIN Custom CSS-->
   <link rel="stylesheet" type="text/css" href="../../../assets/css/style-rtl.css">
   <!-- END Custom CSS-->
+  {{-- <style>
+    .dt-search{
+      margin-right: 100ch !important;
+    }
+  </style> --}}
       
   @else
       
@@ -60,4 +65,30 @@
   <!-- BEGIN Custom CSS-->
   <link rel="stylesheet" type="text/css" href="../../../assets/css/style.css">
   <!-- END Custom CSS-->
+
+  
   @endif
+
+  {{-- DataTables CDN --}}
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.1.8/css/dataTables.bootstrap5.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/3.2.0/css/buttons.bootstrap5.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/3.0.3/css/responsive.dataTables.min.css">
+
+  {{-- colreorder DataTables --}}
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/colreorder/2.0.4/css/colReorder.bootstrap5.min.css">
+  {{-- Rowreorder DataTables --}}
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/rowreorder/1.5.0/css/rowReorder.bootstrap5.min.css">
+  
+  {{-- select DataTable CDN --}}
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/select/2.1.0/css/select.bootstrap5.min.css">
+  
+  
+  {{-- fixed Header DataTable CDN --}}
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/fixedheader/4.0.1/css/fixedHeader.bootstrap5.min.css">
+  {{-- END DataTables CDN --}}
+
+  {{-- File Input --}}
+  <link rel="stylesheet" href="{{ asset('vendor/file-input/css/fileinput.min.css') }}">
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" crossorigin="anonymous" >
+  {{-- End File Input --}}

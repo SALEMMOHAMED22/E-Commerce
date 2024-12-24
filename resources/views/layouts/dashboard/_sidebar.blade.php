@@ -14,6 +14,50 @@
                     </li>
                 </ul>
             </li>
+
+            <li class=" nav-item"><a href="index.html"><i class="la la-home"></i><span class="menu-title"
+                        data-i18n="nav.dash.main">{{ __('dashboard.categories') }}</span><span
+                        class="badge badge badge-info badge-pill float-right mr-2">{{ $category_count }}</span></a>
+                <ul class="menu-content">
+                    <li class="active"><a class="menu-item" href="{{ route('dashboard.categories.index') }}"
+                            data-i18n="nav.dash.ecommerce">{{ __('dashboard.categories') }}</a>
+                    </li>
+                    <li><a class="menu-item" href="{{ route('dashboard.categories.create') }}"
+                            data-i18n="nav.dash.crypto">{{ __('dashboard.create_categories') }}</a>
+                    </li>
+
+                </ul>
+            </li>
+            <li class=" nav-item"><a href="index.html"><i class="la la-home"></i><span class="menu-title"
+                        data-i18n="nav.dash.main">{{ __('dashboard.brands') }}</span><span
+                        class="badge badge badge-info badge-pill float-right mr-2">{{ $brand_count }}</span></a>
+                <ul class="menu-content">
+                    <li class="active"><a class="menu-item" href="{{ route('dashboard.brands.index') }}"
+                            data-i18n="nav.dash.ecommerce">{{ __('dashboard.brands') }}</a>
+                    </li>
+                    <li><a class="menu-item" href="{{ route('dashboard.brands.create') }}"
+                            data-i18n="nav.dash.crypto">{{ __('dashboard.create_brands') }}</a>
+                    </li>
+
+                </ul>
+            </li>
+
+            <li class=" nav-item"><a href="index.html"><i class="la la-home"></i><span class="menu-title"
+                        data-i18n="nav.dash.main">{{ __('dashboard.admins') }}</span><span
+                        class="badge badge badge-info badge-pill float-right mr-2">{{ $admin_count }}</span></a>
+                <ul class="menu-content">
+                    <li class="active"><a class="menu-item" href="{{ route('dashboard.admins.index') }}"
+                            data-i18n="nav.dash.ecommerce">{{ __('dashboard.admins') }}</a>
+                    </li>
+                    <li><a class="menu-item" href="{{ route('dashboard.admins.create') }}"
+                            data-i18n="nav.dash.crypto">{{ __('dashboard.create_admins') }}</a>
+                    </li>
+
+                </ul>
+            </li>
+
+
+
             <li class=" nav-item"><a href="#"><i class="la la-television"></i><span class="menu-title"
                         data-i18n="nav.templates.main">الصلاحيات</span></a>
                 <ul class="menu-content">
@@ -31,18 +75,20 @@
                 </li>
                 <li><a class="menu-item" href="../vertical-overlay-menu-template" data-i18n="nav.templates.vert.overlay_menu">Overlay Menu</a> --}}
             </li>
+
         </ul>
         {{-- </li> --}}
-        <li><a class="menu-item" href="#" data-i18n="nav.templates.horz.main">Horizontal</a>
+        {{-- <li><a class="menu-item" href="#" data-i18n="nav.templates.horz.main">Horizontal</a>
             <ul class="menu-content">
-                <li><a class="menu-item" href="../horizontal-menu-template"
+                <li>
+                    <a class="menu-item" href="../horizontal-menu-template"
                         data-i18n="nav.templates.horz.classic">Classic</a>
                 </li>
                 <li><a class="menu-item" href="../horizontal-menu-template-nav"
                         data-i18n="nav.templates.horz.top_icon">Full Width</a>
                 </li>
             </ul>
-        </li>
+        </li> --}}
         </ul>
         </li>
         <li class=" navigation-header">
