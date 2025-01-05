@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Models\Admin;
 use App\Models\Brand;
 use App\Models\Category;
+use App\Models\Coupon;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\ServiceProvider;
 
@@ -26,10 +27,15 @@ class ViewServiceProvider extends ServiceProvider
         
         view()->composer('dashboard.*' , function($view){
 
-        
+            
         if(!Cache::has('category_count')){
             Cache::remember('category_count' , now()->addMinute(10) , function(){
                 return Category::count();
+            });
+        }
+        if(!Cache::has('coupon_count')){
+            Cache::remember('coupon_count' , now()->addMinute(10) , function(){
+                return Coupon::count();
             });
         }
         if(!Cache::has('brand_count')){
@@ -47,6 +53,7 @@ class ViewServiceProvider extends ServiceProvider
             'category_count' => Cache::get('category_count'),
             'brand_count' => Cache::get('brand_count'),
             'admin_count' => Cache::get('admin_count'),
+            'coupon_count' =>Cache::get('coupon_count'),
         ]);
 
     });

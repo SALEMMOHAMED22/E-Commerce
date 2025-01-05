@@ -2,7 +2,7 @@
 
 return [
     'dashboard' => 'لوحة القيادة',
-    'roles' => 'الصلاحيات',
+    'permissions' => 'الصلاحيات',
     'create_role' => 'اضافة صلاحية',
     'edit_role' => 'تعديل صلاحية',
     'delete_role' => 'حذف صلاحية',
@@ -64,6 +64,7 @@ return [
     'select_shipping_price' => 'اختار سعر الشحن',
     'change_price' => ' تغير السعر',
     'admins' => 'المديرين',
+    'create_admin' => 'إنشاء مسؤول',
     'home' => 'الرئيسية',
     'create_admins' => 'انشاء مدير',
     'categories' => 'الاقسام',
@@ -119,5 +120,16 @@ return [
     'shipping'=>' الشحن',
     'roles'=>' الصلاحيات',
     
+    'coupons' => 'الكوبونات',
+    'create_coupon' => 'إنشاء كوبون',
+    'code' => 'الكود',
+    'discount' => 'الخصم',
+    'limit' => 'الحد الاقصي',
+    'time_used' => 'مرات الاستخدام',
+    'coupons_table' => 'جدول الكوبونات',
+    'start_date' => 'تاريخ البدايه ',
+    'end_date' => 'تاريخ الانتهاء',
+    
+
 
 ];

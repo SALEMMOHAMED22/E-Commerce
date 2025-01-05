@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class LoginAdminRequest extends FormRequest
+class CouponRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,10 +22,12 @@ class LoginAdminRequest extends FormRequest
     public function rules(): array
     {
         return [
-            
-            'email'=>['required' , 'email'],
-            'password'=>['required' , 'string' , 'max:35'],
-            // 'g-recaptcha-response'=>['required']
+            'code'=>['required','min:4' , 'max:10' , 'unique:coupons,code,'.$this->id],
+            'discount_precentage'=>['required','numeric','between:1,100'],
+            'start_date'=>['required','date','after_or_equal:now'],
+            'end_date'=>['required','date','after:start_date'],
+            'limit'=>['required','numeric','min:1'],
+            'is_active'=>['required','boolean'],
         ];
     }
 }

@@ -2,7 +2,7 @@
 
 return [
     'dashboard' => 'Dashboard',
-    'roles' => 'Authorizations',
+    'permissions' => 'Permissions',
     'create_role' => 'Create Authorization',
     'edit_role' => 'Edit Authorization',
     'delete_role' => 'Delete Authorization',
@@ -95,6 +95,8 @@ return [
      'not_found'=>'Not Found',
  
      'admins'=>'Admins ',
+    'create_admin' => 'Create Admin',
+
      'categories'=>'Categories ',
      'brands'=>'Brands ',
      'products'=>'Products ',
@@ -103,5 +105,14 @@ return [
      'shipping'=>'Shipping ',
      'roles'=>'Roles&Permissions',
 
+     'coupons' => 'Coupons',
+     'create_coupon' => 'Create Coupon',
+     'code' => 'Code',
+     'discount' => 'Discount',
+     'limit' => 'Limit',
+     'time_used' => 'Time Used',
+     'coupons_table' => 'Coupons Table',
+    'start_date' => 'Start Date',
+    'end_date' => 'End Date',
 
 ];

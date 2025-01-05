@@ -41,6 +41,19 @@
 
                 </ul>
             </li>
+            <li class=" nav-item"><a href="index.html"><i class="la la-home"></i><span class="menu-title"
+                data-i18n="nav.dash.main">{{ __('dashboard.coupons') }}</span><span
+                class="badge badge badge-info badge-pill float-right mr-2">{{ $coupon_count }}</span></a>
+        <ul class="menu-content">
+            <li class="active"><a class="menu-item" href="{{ route('dashboard.coupons.index') }}"
+                    data-i18n="nav.dash.ecommerce">{{ __('dashboard.coupons') }}</a>
+            </li>
+            {{-- <li><a class="menu-item" href="{{ route('dashboard.coupons.create') }}"
+                    data-i18n="nav.dash.crypto">{{ __('dashboard.create_coupons') }}</a>
+            </li> --}}
+
+        </ul>
+    </li>
 
             <li class=" nav-item"><a href="index.html"><i class="la la-home"></i><span class="menu-title"
                         data-i18n="nav.dash.main">{{ __('dashboard.admins') }}</span><span
@@ -59,15 +72,15 @@
 
 
             <li class=" nav-item"><a href="#"><i class="la la-television"></i><span class="menu-title"
-                        data-i18n="nav.templates.main">الصلاحيات</span></a>
+                        data-i18n="nav.templates.main">{{ __('dashboard.permissions') }}</span></a>
                 <ul class="menu-content">
                     {{-- <li><a class="menu-item" href="{{ route('dashboard.roles.create') }}" data-i18n="nav.templates.vert.main">انشاء دور</a> --}}
                     <ul class="menu-content">
                         <li><a class="menu-item" href="{{ route('dashboard.roles.index') }}"
-                                data-i18n="nav.templates.vert.classic_menu">الادوار</a>
+                                data-i18n="nav.templates.vert.classic_menu">{{ __('dashboard.roles') }}</a>
                         </li>
                         <li><a class="menu-item" href="{{ route('dashboard.roles.create') }}"
-                                data-i18n="nav.templates.vert.classic_menu">انشاء دور</a>
+                                data-i18n="nav.templates.vert.classic_menu">{{ __('dashboard.create_role') }} </a>
                         </li>
                         {{-- <li><a class="menu-item" href="../vertical-compact-menu-template" data-i18n="nav.templates.vert.compact_menu">Compact Menu</a>
                 </li>
