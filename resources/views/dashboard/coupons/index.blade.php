@@ -207,6 +207,7 @@
         // crete coupon 
         $('#createCoupon').on('submit', function(e) {
             e.preventDefault();
+            var currentPage = $('#yajra_table').DataTable().page(); // get the current page number
             $.ajax({
                 url: "{{ route('dashboard.coupons.store') }}",
                 method: 'post',
@@ -216,7 +217,7 @@
                 success: function(data) {
                     if (data.status == 'success') {
                         $('#createCoupon')[0].reset();
-                        $('#yajra_table').DataTable().ajax.reload();
+                        $('#yajra_table').DataTable().page(currentPage).draw(false);
                         $('#couponModal').modal('hide');
                         Swal.fire({
                             position: "top-center",
