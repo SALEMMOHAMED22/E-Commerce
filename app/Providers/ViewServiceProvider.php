@@ -6,6 +6,7 @@ use App\Models\Admin;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Coupon;
+use App\Models\Faq;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\ServiceProvider;
 
@@ -33,6 +34,11 @@ class ViewServiceProvider extends ServiceProvider
                 return Category::count();
             });
         }
+        if(!Cache::has('faqs_count')){
+            Cache::remember('faqs_count' , now()->addMinute(10) , function(){
+                return Faq::count();
+            });
+        }
         if(!Cache::has('coupon_count')){
             Cache::remember('coupon_count' , now()->addMinute(10) , function(){
                 return Coupon::count();
@@ -54,6 +60,7 @@ class ViewServiceProvider extends ServiceProvider
             'brand_count' => Cache::get('brand_count'),
             'admin_count' => Cache::get('admin_count'),
             'coupon_count' =>Cache::get('coupon_count'),
+            'faqs_count' => Cache::get('faqs_count'),
         ]);
 
     });

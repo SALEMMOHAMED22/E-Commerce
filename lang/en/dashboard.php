@@ -114,5 +114,18 @@ return [
      'coupons_table' => 'Coupons Table',
     'start_date' => 'Start Date',
     'end_date' => 'End Date',
+    'faqs' => 'FAQs',
+    'faqs_table' => 'FAQs Table',
+    'create_faq' => 'Create FAQ',
+    'question_ar' => 'Question Arabic',
+    'question_en' => 'Question English',
+    'answer_ar' => 'Answer Arabic',
+    'answer_en' => 'Answer English',
+    'question' => 'Question',
+    'answer' => 'Answer',
+    'edit_faq' => 'Edit FAQ',
+    'delete_faq' => 'Delete FAQ',
+
+
 
 ];

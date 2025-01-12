@@ -7,6 +7,7 @@ use App\Http\Controllers\Dashboard\Auth\ResetPasswordController;
 use App\Http\Controllers\dashboard\BrandController;
 use App\Http\Controllers\dashboard\CategoryController;
 use App\Http\Controllers\Dashboard\CouponController;
+use App\Http\Controllers\Dashboard\FaqController;
 use App\Http\Controllers\Dashboard\RoleController;
 use App\Http\Controllers\Dashboard\WelcomeController;
 use App\Http\Controllers\Dashboard\WorldController;
@@ -101,6 +102,12 @@ Route::group(
             Route::get('coupons-all' , [CouponController::class , 'getAll'] )->name('coupons.all');
         // });
         ######################### coupons End #################################
+          ######################### Faq Start #################################
+        // Route::group(['middleware' => 'can:faqs'] , function(){
+            Route::resource('faqs' , FaqController::class);
+            Route::get('faqs-all' , [FaqController::class , 'getAll'] )->name('faqs.all');
+        // });
+        ######################### Faq End #################################
 
     }
 );
