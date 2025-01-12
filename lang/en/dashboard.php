@@ -126,6 +126,41 @@ return [
     'edit_faq' => 'Edit FAQ',
     'delete_faq' => 'Delete FAQ',
 
+    'settings'=>'Settings ',
+     'edit_settings'=>'Edit Settings',
+     'update_settings'=>'Edit Settings',
+     'site_name'=>'Site Name',
+     'facebook'=>'Facebook',
+     'twitter'=>'Twitter',
+     'instagram'=>'Instagram',
+     'youtube'=>'Youtube',
+
+     'site_logo'=>'Site Logo',
+     'site_favicon'=>'Site Icon',
+     'site_lang'=>'Site Lang',
+     'site_status'=>'Site Status',
+     'site_maintenance_message'=>'Site Maintenance Message',
+     'site_maintenance_message_ar'=>'Site Maintenance Message Arabic',
+     'site_maintenance_message_en'=>'Site Maintenance Message English',
+
+     'basic_settings'=>'Basic Settings',
+     'contact_info'=>'Contact Info',
+     'media'=>'Media',
+     'site_name_en'=>'Site Name English',
+     'site_name_ar'=>'Site Name Arabic',
+     'site_desc_en'=>'Site Description English',
+     'site_desc_ar'=>'Site Description Arabic',
+     'site_description_ar'=>'Site Description Arabic',
+     'meta_description_ar'=>'Meta Description Arabic',
+     'meta_description_en'=>'Meta Description English',
+     'site_address_en'=>'Site Address English',
+     'site_address_ar'=>'Site Address Arabic',
+     'email_support'=>'Email Support',
+     'social'=>'Social',
+     'favicon'=>'Favicon',
+     'promotion_video_url'=>'Promotion Video Url',
+     'site_copyright'=>'Site Copyright',
+
 
 
 ];

@@ -9,6 +9,7 @@ use App\Http\Controllers\dashboard\CategoryController;
 use App\Http\Controllers\Dashboard\CouponController;
 use App\Http\Controllers\Dashboard\FaqController;
 use App\Http\Controllers\Dashboard\RoleController;
+use App\Http\Controllers\Dashboard\SettingController;
 use App\Http\Controllers\Dashboard\WelcomeController;
 use App\Http\Controllers\Dashboard\WorldController;
 use Illuminate\Auth\Notifications\ResetPassword;
@@ -108,6 +109,12 @@ Route::group(
             Route::get('faqs-all' , [FaqController::class , 'getAll'] )->name('faqs.all');
         // });
         ######################### Faq End #################################
+          ######################### settings Start #################################
+        // Route::group(['middleware' => 'can:settings'] , function(){
+            Route::get('settings' ,[ SettingController::class , 'index'])->name('settings.index');
+            Route::put('settings/{id}' , [SettingController::class , 'update'] )->name('settings.update');
+        // });
+        ######################### settings End #################################
 
     }
 );
