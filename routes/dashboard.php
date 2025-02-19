@@ -1,21 +1,24 @@
 <?php
 
-use App\Http\Controllers\Dashboard\AdminController;
-use App\Http\Controllers\Dashboard\Auth\AuthController;
-use App\Http\Controllers\Dashboard\Auth\ForgetPasswordController;
-use App\Http\Controllers\Dashboard\Auth\ResetPasswordController;
-use App\Http\Controllers\dashboard\BrandController;
-use App\Http\Controllers\dashboard\CategoryController;
-use App\Http\Controllers\Dashboard\CouponController;
+use Livewire\Livewire;
+use Illuminate\Validation\Rules\Can;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Auth\Notifications\ResetPassword;
 use App\Http\Controllers\Dashboard\FaqController;
 use App\Http\Controllers\Dashboard\RoleController;
+use App\Http\Controllers\Dashboard\AdminController;
+use App\Http\Controllers\dashboard\BrandController;
+use App\Http\Controllers\Dashboard\WorldController;
+use App\Http\Controllers\Dashboard\CouponController;
+use App\Http\Controllers\Dashboard\ProductController;
 use App\Http\Controllers\Dashboard\SettingController;
 use App\Http\Controllers\Dashboard\WelcomeController;
-use App\Http\Controllers\Dashboard\WorldController;
-use Illuminate\Auth\Notifications\ResetPassword;
-use Illuminate\Support\Facades\Route;
-use Illuminate\Validation\Rules\Can;
+use App\Http\Controllers\dashboard\CategoryController;
+use App\Http\Controllers\Dashboard\AttributeController;
+use App\Http\Controllers\Dashboard\Auth\AuthController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+use App\Http\Controllers\Dashboard\Auth\ResetPasswordController;
+use App\Http\Controllers\Dashboard\Auth\ForgetPasswordController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -115,6 +118,28 @@ Route::group(
             Route::put('settings/{id}' , [SettingController::class , 'update'] )->name('settings.update');
         // });
         ######################### settings End #################################
+         ######################### attribute Start #################################
+        // Route::group(['middleware' => 'can:attribute'] , function(){
+            Route::resource('attributes' , AttributeController::class);
+            Route::get('attributes-all' , [AttributeController::class , 'getAll'] )->name('attributes.all');
+        // });
+        ######################### attribute End #################################
+        ######################### Products Routes #################################
+        Livewire::setUpdateRoute(function ($handle) {
+            return Route::post('/livewire/update', $handle);
+        });
 
+
+        // Route::group(['middleware' => 'can:products'], function () {
+            Route::resource('products', ProductController::class);
+            Route::get('products-all', [ProductController::class, 'getAll'])->name('products.all');
+            Route::post('products/change-status', [ProductController::class, 'changeStatus'])->name('products.changeStatus');
+
+            Route::get('product/variants/{variant_id}', [ProductController::class, 'deleteVariant'])->name('products.variants.delete');
+        // });
+            
+        
+        ######################### End Products  #################################
+        
     }
 );

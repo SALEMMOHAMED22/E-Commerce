@@ -2,6 +2,7 @@
 
 namespace App\Services\Dashboard;
 
+use App\Models\Category;
 use Yajra\DataTables\Facades\DataTables;
 use App\Repositories\Dashboard\CategoryRepository;
 
@@ -18,6 +19,10 @@ class CategoryService
 
     public function findById($id){
          return $this->categoryRepository->findById($id);
+    }
+    public function getCategories(){
+        $categories = $this->categoryRepository->getAll();
+        return $categories;
     }
 
     public function getCategoriesForDatatable(){

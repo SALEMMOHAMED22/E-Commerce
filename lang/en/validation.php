@@ -192,7 +192,10 @@ return [
     'attributes' => [
         'role.en'=> 'Role English',
         'role.ar'=> 'Role Arabic',
-        'permissions' => 'Permissions'
+        'permissions' => 'Permissions',
+        'value.*.ar' => 'Value With Arabic',
+        'value.*.en' => 'Value With English',
+        'name.en' => 'Name English',
+        'name.ar' => 'Name Arabic',
     ],
-
 ];

@@ -9,32 +9,32 @@ use Illuminate\Support\Facades\Storage;
 class ImageManger
 {
 
-    // public static function uploadImages($request , $post=null , $user=null)
-    // {
-    //     if($request->hasFile('images')){
-    //         foreach($request->images as $image){
+    public static function uploadImages($images , $model , $disk)
+    {
+     
+            foreach($images as $image){
 
-    //             $file = self::generateImageName($image);
-    //             $path = self::storeImageInLocal($image , 'posts' , $file);
+                $file_name = self::generateImageName($image);
+                 self::storeImageInLocal($image , '/' , $file_name , $disk);
 
-    //             $post->images()->create([
-    //                 'path'=>$path,
-    //             ]);
-    //         }
-    //     }
+                $model->images()->create([
+                    'file_name'=>$file_name,
+                ]);
+            
+        }
 
-    //     // upload single image
-    //     if($request->hasFile('image')){
-    //         $image = $request->file('image');
+        // upload single image
+        // if($request->hasFile('image')){
+        //     $image = $request->file('image');
 
-    //         self::deleteImageFromLocal($user->image);
+        //     self::deleteImageFromLocal($user->image);
 
-    //         $file = self::generateImageName($image);
-    //         $path = self::storeImageInLocal($image , 'users' , $file);
+        //     $file = self::generateImageName($image);
+        //     $path = self::storeImageInLocal($image , 'users' , $file);
 
-    //         $user->update(['image'=>$path]);
-    //     }
-    // }
+        //     $user->update(['image'=>$path]);
+        // }
+    }
 
     // public static function deleteImages($post)
     // {
@@ -52,17 +52,17 @@ class ImageManger
         self::storeImageInLocal($image, $path, $file_name, $disk);
         return $file_name;
     }
-    public function generateImageName($image)
+    public static function generateImageName($image)
     {
         $file_name = Str::uuid() . time() . '.' . $image->getClientOriginalExtension();
         return $file_name;
     }
-    public function storeImageInLocal($image, $path, $file_name, $disk)
+    public static function storeImageInLocal($image, $path, $file_name, $disk)
     {
         $image->storeAs($path, $file_name, ['disk' => $disk]);
     }
 
-    public function deleteImageFromLocal($image_path): void
+    public static function deleteImageFromLocal($image_path): void
     {
         if (File::exists(public_path($image_path))) {
             File::delete(public_path($image_path));

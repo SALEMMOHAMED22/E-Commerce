@@ -120,16 +120,30 @@
             </ul>
         </li>
         <li class=" nav-item"><a href="index.html"><i class="la la-home"></i><span class="menu-title"
-                data-i18n="nav.dash.main">{{ __('dashboard.settings') }}</span><span
-                class="badge badge badge-info badge-pill float-right mr-2"></span></a>
-        <ul class="menu-content">
-            <li class="active"><a class="menu-item" href="{{ route('dashboard.settings.index') }}"
-                    data-i18n="nav.dash.ecommerce">{{ __('dashboard.settings') }}</a>
-            </li>
-            {{-- <li><a class="menu-item" href="{{ route('dashboard.coupons.create') }}"
+                    data-i18n="nav.dash.main">{{ __('dashboard.products') }}</span><span
+                    class="badge badge badge-info badge-pill float-right mr-2"></span></a>
+            <ul class="menu-content">
+                <li class="active"><a class="menu-item" href="{{ route('dashboard.products.index') }}"
+                        data-i18n="nav.dash.ecommerce">{{ __('dashboard.products') }}</a>
+                </li>
+                <li class=""><a class="menu-item" href="{{ route('dashboard.attributes.index') }}"
+                        data-i18n="nav.dash.ecommerce">{{ __('dashboard.attributes') }}</a>
+                </li>
+                <li><a class="menu-item" href="{{ route('dashboard.products.create') }}"
+                        data-i18n="nav.dash.crypto">{{ __('dashboard.create_product') }}</a> </li>
+            </ul>
+        </li>
+        <li class=" nav-item"><a href="index.html"><i class="la la-home"></i><span class="menu-title"
+                    data-i18n="nav.dash.main">{{ __('dashboard.settings') }}</span><span
+                    class="badge badge badge-info badge-pill float-right mr-2"></span></a>
+            <ul class="menu-content">
+                <li class="active"><a class="menu-item" href="{{ route('dashboard.settings.index') }}"
+                        data-i18n="nav.dash.ecommerce">{{ __('dashboard.settings') }}</a>
+                </li>
+                {{-- <li><a class="menu-item" href="{{ route('dashboard.coupons.create') }}"
         data-i18n="nav.dash.crypto">{{ __('dashboard.create_coupons') }}</a> </li> --}}
-        </ul>
-    </li>
+            </ul>
+        </li>
         <li class=" nav-item"><a href="#"><i class="la la-columns"></i><span class="menu-title"
                     data-i18n="nav.page_layouts.main">Page layouts</span><span
                     class="badge badge badge-pill badge-danger float-right mr-2">New</span></a>
@@ -983,7 +997,8 @@
                 <li><a class="menu-item" href="form-checkboxes-radios.html"
                         data-i18n="nav.form_elements.form_checkboxes_radios">Checkboxes &amp; Radios</a>
                 </li>
-                <li><a class="menu-item" href="form-switch.html" data-i18n="nav.form_elements.form_switch">Switch</a>
+                <li><a class="menu-item" href="form-switch.html"
+                        data-i18n="nav.form_elements.form_switch">Switch</a>
                 </li>
                 <li><a class="menu-item" href="#" data-i18n="nav.form_elements.form_select.main">Select</a>
                     <ul class="menu-content">

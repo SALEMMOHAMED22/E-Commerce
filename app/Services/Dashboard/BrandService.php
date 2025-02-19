@@ -2,6 +2,7 @@
 
 namespace App\Services\Dashboard;
 
+use App\Models\Brand;
 use App\Repositories\Dashboard\BrandRepository;
 use App\Utils\ImageManger;
 use Illuminate\Support\Facades\Cache;
@@ -24,6 +25,10 @@ class BrandService
             return $brand;
 
         
+    }
+    public function getBrands(){
+        $brands = $this->brandRepository->getBrands();
+        return $brands;
     }
 
     public function getBrandsForDatatables(){
