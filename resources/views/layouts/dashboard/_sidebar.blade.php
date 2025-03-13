@@ -1,17 +1,14 @@
-<div class="main-menu menu-fixed menu-dark menu-accordion menu-shadow" data-scroll-to-active="true">
+<div class="main-menu menu-fixed menu-dark menu-accordion menu-shadow" data-scroll-to-="true">
     <div class="main-menu-content">
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-            <li class=" nav-item"><a href="index.html"><i class="la la-home"></i><span class="menu-title"
+            <li class=" nav-item"><a href="#"><i class="la la-home"></i><span class="menu-title"
                         data-i18n="nav.dash.main">Dashboard</span><span
                         class="badge badge badge-info badge-pill float-right mr-2">3</span></a>
                 <ul class="menu-content">
-                    <li class="active"><a class="menu-item" href="dashboard-ecommerce.html"
+                    <li class=""><a class="menu-item" href="#"
                             data-i18n="nav.dash.ecommerce">eCommerce</a>
                     </li>
-                    <li><a class="menu-item" href="dashboard-crypto.html" data-i18n="nav.dash.crypto">Crypto</a>
-                    </li>
-                    <li><a class="menu-item" href="dashboard-sales.html" data-i18n="nav.dash.sales">Sales</a>
-                    </li>
+                   
                 </ul>
             </li>
 
@@ -19,7 +16,7 @@
                         data-i18n="nav.dash.main">{{ __('dashboard.categories') }}</span><span
                         class="badge badge badge-info badge-pill float-right mr-2">{{ $category_count }}</span></a>
                 <ul class="menu-content">
-                    <li class="active"><a class="menu-item" href="{{ route('dashboard.categories.index') }}"
+                    <li class=""><a class="menu-item" href="{{ route('dashboard.categories.index') }}"
                             data-i18n="nav.dash.ecommerce">{{ __('dashboard.categories') }}</a>
                     </li>
                     <li><a class="menu-item" href="{{ route('dashboard.categories.create') }}"
@@ -32,7 +29,7 @@
                         data-i18n="nav.dash.main">{{ __('dashboard.brands') }}</span><span
                         class="badge badge badge-info badge-pill float-right mr-2">{{ $brand_count }}</span></a>
                 <ul class="menu-content">
-                    <li class="active"><a class="menu-item" href="{{ route('dashboard.brands.index') }}"
+                    <li class=""><a class="menu-item" href="{{ route('dashboard.brands.index') }}"
                             data-i18n="nav.dash.ecommerce">{{ __('dashboard.brands') }}</a>
                     </li>
                     <li><a class="menu-item" href="{{ route('dashboard.brands.create') }}"
@@ -45,7 +42,7 @@
                         data-i18n="nav.dash.main">{{ __('dashboard.coupons') }}</span><span
                         class="badge badge badge-info badge-pill float-right mr-2">{{ $coupon_count }}</span></a>
                 <ul class="menu-content">
-                    <li class="active"><a class="menu-item" href="{{ route('dashboard.coupons.index') }}"
+                    <li class=""><a class="menu-item" href="{{ route('dashboard.coupons.index') }}"
                             data-i18n="nav.dash.ecommerce">{{ __('dashboard.coupons') }}</a>
                     </li>
                     {{-- <li><a class="menu-item" href="{{ route('dashboard.coupons.create') }}"
@@ -59,12 +56,26 @@
                         data-i18n="nav.dash.main">{{ __('dashboard.admins') }}</span><span
                         class="badge badge badge-info badge-pill float-right mr-2">{{ $admin_count }}</span></a>
                 <ul class="menu-content">
-                    <li class="active"><a class="menu-item" href="{{ route('dashboard.admins.index') }}"
+                    <li class=""><a class="menu-item" href="{{ route('dashboard.admins.index') }}"
                             data-i18n="nav.dash.ecommerce">{{ __('dashboard.admins') }}</a>
                     </li>
                     <li><a class="menu-item" href="{{ route('dashboard.admins.create') }}"
                             data-i18n="nav.dash.crypto">{{ __('dashboard.create_admins') }}</a>
                     </li>
+
+                </ul>
+            </li>
+
+            <li class=" nav-item"><a href="index.html"><i class="la la-home"></i><span class="menu-title"
+                        data-i18n="nav.dash.main">{{ __('dashboard.users') }}</span><span
+                        class="badge badge badge-info badge-pill float-right mr-2">#</span></a>
+                <ul class="menu-content">
+                    <li class=""><a class="menu-item" href="{{ route('dashboard.users.index') }}"
+                            data-i18n="nav.dash.ecommerce">{{ __('dashboard.users') }}</a>
+                    </li>
+                    {{-- <li><a class="menu-item" href="{{ route('dashboard.admins.create') }}"
+                    data-i18n="nav.dash.crypto">{{ __('dashboard.create_admins') }}</a>
+            </li> --}}
 
                 </ul>
             </li>
@@ -104,6 +115,21 @@
         </li> --}}
         </ul>
         </li>
+
+
+        <li class=" nav-item"><a href="index.html"><i class="la la-home"></i><span class="menu-title"
+                data-i18n="nav.dash.main">{{ __('dashboard.contacts_management') }}</span><span
+                class="badge badge badge-info badge-pill float-right mr-2">{{ $contacts_count }}</span></a>
+        <ul class="menu-content">
+            <li class=""><a class="menu-item" href="{{ route('dashboard.contacts.index') }}"
+                    data-i18n="nav.dash.ecommerce">{{ __('dashboard.contacts') }}</a>
+            </li>
+            {{-- <li><a class="menu-item" href="{{ route('dashboard.admins.create') }}"
+            data-i18n="nav.dash.crypto">{{ __('dashboard.create_admins') }}</a>
+    </li> --}}
+
+        </ul>
+    </li>
         <li class=" navigation-header">
             <span data-i18n="nav.category.layouts">Layouts</span><i class="la la-ellipsis-h ft-minus"
                 data-toggle="tooltip" data-placement="right" data-original-title="Layouts"></i>
@@ -112,7 +138,7 @@
                     data-i18n="nav.dash.main">{{ __('dashboard.faqs') }}</span><span
                     class="badge badge badge-info badge-pill float-right mr-2">{{ $faqs_count }}</span></a>
             <ul class="menu-content">
-                <li class="active"><a class="menu-item" href="{{ route('dashboard.faqs.index') }}"
+                <li class=""><a class="menu-item" href="{{ route('dashboard.faqs.index') }}"
                         data-i18n="nav.dash.ecommerce">{{ __('dashboard.faqs') }}</a>
                 </li>
                 {{-- <li><a class="menu-item" href="{{ route('dashboard.coupons.create') }}"
@@ -123,7 +149,7 @@
                     data-i18n="nav.dash.main">{{ __('dashboard.products') }}</span><span
                     class="badge badge badge-info badge-pill float-right mr-2"></span></a>
             <ul class="menu-content">
-                <li class="active"><a class="menu-item" href="{{ route('dashboard.products.index') }}"
+                <li class=""><a class="menu-item" href="{{ route('dashboard.products.index') }}"
                         data-i18n="nav.dash.ecommerce">{{ __('dashboard.products') }}</a>
                 </li>
                 <li class=""><a class="menu-item" href="{{ route('dashboard.attributes.index') }}"
@@ -137,7 +163,7 @@
                     data-i18n="nav.dash.main">{{ __('dashboard.settings') }}</span><span
                     class="badge badge badge-info badge-pill float-right mr-2"></span></a>
             <ul class="menu-content">
-                <li class="active"><a class="menu-item" href="{{ route('dashboard.settings.index') }}"
+                <li class=""><a class="menu-item" href="{{ route('dashboard.settings.index') }}"
                         data-i18n="nav.dash.ecommerce">{{ __('dashboard.settings') }}</a>
                 </li>
                 {{-- <li><a class="menu-item" href="{{ route('dashboard.coupons.create') }}"
@@ -811,8 +837,8 @@
                 </li>
                 <li><a class="menu-item" href="card-charts.html" data-i18n="nav.cards.card_charts">Charts</a>
                 </li>
-                <li><a class="menu-item" href="card-interactive.html"
-                        data-i18n="nav.cards.card_interactive">Interactive</a>
+                <li><a class="menu-item" href="card-inter.html"
+                        data-i18n="nav.cards.card_inter">Inter</a>
                 </li>
                 <li><a class="menu-item" href="card-maps.html" data-i18n="nav.cards.card_maps">Maps</a>
                 </li>

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Contact;
 use App\Models\User;
 use Attribute;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -31,6 +32,8 @@ class DatabaseSeeder extends Seeder
             CouponSeeder::class,
             FaqSeeder::class,
             AttributeSeeder::class,
+            UserSeeder::class,
+            ContactSeeder::class,
             
         ]);
     }

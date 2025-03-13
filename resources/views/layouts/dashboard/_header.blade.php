@@ -5,7 +5,7 @@
           <li class="nav-item mobile-menu d-md-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ft-menu font-large-1"></i></a></li>
           <li class="nav-item mr-auto">
             <a class="navbar-brand" href="index.html">
-              <img class="brand-logo" alt="modern admin logo" src="{{ asset($setting->logo) }}">
+              <img class="brand-logo" alt="logo" src="{{ asset($setting->logo) }}">
               <h3 class="brand-text">{{ $setting->site_name }}</h3>
             </a>
           </li>

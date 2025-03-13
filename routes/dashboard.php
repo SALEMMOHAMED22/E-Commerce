@@ -4,21 +4,27 @@ use Livewire\Livewire;
 use Illuminate\Validation\Rules\Can;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Auth\Notifications\ResetPassword;
-use App\Http\Controllers\Dashboard\FaqController;
-use App\Http\Controllers\Dashboard\RoleController;
-use App\Http\Controllers\Dashboard\AdminController;
-use App\Http\Controllers\dashboard\BrandController;
-use App\Http\Controllers\Dashboard\WorldController;
-use App\Http\Controllers\Dashboard\CouponController;
-use App\Http\Controllers\Dashboard\ProductController;
-use App\Http\Controllers\Dashboard\SettingController;
-use App\Http\Controllers\Dashboard\WelcomeController;
-use App\Http\Controllers\dashboard\CategoryController;
-use App\Http\Controllers\Dashboard\AttributeController;
+use App\Http\Controllers\Dashboard\{
+    FaqController,
+    RoleController,
+    AdminController,
+    BrandController,
+    WorldController,
+    CouponController,
+    ProductController,
+    SettingController,
+    WelcomeController,
+    CategoryController,
+    AttributeController,
+    ContactController,
+    UserController,
+    
+};
 use App\Http\Controllers\Dashboard\Auth\AuthController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\Dashboard\Auth\ResetPasswordController;
 use App\Http\Controllers\Dashboard\Auth\ForgetPasswordController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -30,8 +36,9 @@ Route::group(
         'as' => 'dashboard.',
         'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
     ],
-    function () { //...
+    function () { 
         ############################ Auth ################################
+
         Route::get('login', [AuthController::class, 'showLoginForm'])->name('login');
         Route::post('login', [AuthController::class, 'login'])->name('login.post');
         Route::post('logout', [AuthController::class, 'logout'])->name('logout');
@@ -39,10 +46,12 @@ Route::group(
         ############################ Reset Password ################################
         Route::group(['prefix' => 'password', 'as' => 'password.'], function () {
             Route::controller(ForgetPasswordController::class)->group(function () {
+
                 Route::get('email', 'showEmailForm')->name('email');
                 Route::post('email', 'sendOtp')->name('email.post');
                 Route::get('verify/{email}', 'showOtpForm')->name('verify');
                 Route::post('verify', 'verifyOtp')->name('verify.post');
+
             });
             Route::controller(ResetPasswordController::class)->group(function () {
                 Route::get('reset/{email}', 'showresetForm')->name('reset');
@@ -100,18 +109,21 @@ Route::group(
             Route::get('brands-all' , [BrandController::class , 'getAll'] )->name('brands.all');
         // });
         ######################### Brands End #################################
+
         ######################### coupons Start #################################
         // Route::group(['middleware' => 'can:coupons'] , function(){
             Route::resource('coupons' , CouponController::class)->except('show');
             Route::get('coupons-all' , [CouponController::class , 'getAll'] )->name('coupons.all');
         // });
         ######################### coupons End #################################
+
           ######################### Faq Start #################################
         // Route::group(['middleware' => 'can:faqs'] , function(){
             Route::resource('faqs' , FaqController::class);
             Route::get('faqs-all' , [FaqController::class , 'getAll'] )->name('faqs.all');
         // });
         ######################### Faq End #################################
+
           ######################### settings Start #################################
         // Route::group(['middleware' => 'can:settings'] , function(){
             Route::get('settings' ,[ SettingController::class , 'index'])->name('settings.index');
@@ -124,6 +136,7 @@ Route::group(
             Route::get('attributes-all' , [AttributeController::class , 'getAll'] )->name('attributes.all');
         // });
         ######################### attribute End #################################
+
         ######################### Products Routes #################################
         Livewire::setUpdateRoute(function ($handle) {
             return Route::post('/livewire/update', $handle);
@@ -140,6 +153,23 @@ Route::group(
             
         
         ######################### End Products  #################################
+
+
+         ######################### users Start #################################
+        // Route::group(['middleware' => 'Can:users'] , function(){
+            Route::resource('users' , UserController::class);
+            Route::post('users/status' , [UserController::class , 'changeStatus'] )->name('users.status');
+            Route::get('users-all' , [UserController::class , 'getAll'])
+            ->name('users.all');
+        // });
+        ######################### users End #################################
+         ######################### contacts Start #################################
+        // Route::group(['middleware' => 'Can:contact'] , function(){
+           
+            Route::get('contacts' , [ContactController::class , 'index'])
+            ->name('contacts.index');
+        // });
+        ######################### contacts End #################################
         
     }
 );

@@ -53,13 +53,14 @@
                                         data-target="#couponModal">
                                         {{ __('dashboard.create_coupon') }}
                                     </button>
+                                    <br>
 
                                     {{-- modal --}}
                                     @include('dashboard.coupons.create')
                                     @include('dashboard.coupons.edit')
 
                                     {{-- end create coupon modal --}}
-
+                                    <br>
                                     <p class="card-text">{{ __('dashboard.table_paragraph') }}.</p>
                                     <table id="yajra_table" class="table table-striped table-bordered language-file">
                                         <thead>

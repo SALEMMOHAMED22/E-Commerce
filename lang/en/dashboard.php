@@ -232,9 +232,22 @@ return [
     'step 3'=>'Step 3',
     'submit'=> 'Submit',
     'product' => 'Product',
-    'products_table' => ' Products Table'
+    'products_table' => ' Products Table',
+
+    // User 
+    'users' => 'Users',
+    'users_table' => 'Users Table' ,
+
+    'create_user' => 'Create User',
+    'email_verified_at' => 'Email Verified At',
+    'country' => 'Country',
+    'governorate' =>'Governorate',
+    'city' => 'City',
     
-
-
-
+    'create_brand' => 'Create Brand',
+    'brands_table' => 'Brands Table',
+    
+    'table_yajra_paragraph' => 'A dynamic table that displays data from a database with features such as searching, sorting, showing and hiding columns, and options to export, print, or copy data to Excel.',
+    'contacts' => 'Contacts',
+    'contacts_management' => 'Contacts Management',
 ];
