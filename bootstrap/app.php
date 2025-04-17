@@ -14,7 +14,6 @@ return Application::configure(basePath: dirname(__DIR__))
 
         then: function(){
             Route::middleware('web')
-          
             ->group(base_path('routes/dashboard.php'));
         }
     )
@@ -24,7 +23,7 @@ return Application::configure(basePath: dirname(__DIR__))
             if(request()->is('*/dashboard/*')){
                 return route('dashboard.login');
             }else{
-                return route('login');
+                return route('website.showLoginForm');
             }
         });
 
@@ -32,7 +31,7 @@ return Application::configure(basePath: dirname(__DIR__))
             if(Auth::guard('admin')->check()){
                 return route('dashboard.welcome');
             }else{
-                return route('/');
+                return route('website.profile');
             }
         });
         $middleware->alias([

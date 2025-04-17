@@ -205,7 +205,7 @@
 
 
         });
-        // crete coupon 
+        // create coupon 
         $('#createCoupon').on('submit', function(e) {
             e.preventDefault();
             var currentPage = $('#yajra_table').DataTable().page(); // get the current page number
@@ -236,7 +236,7 @@
                             timer: 1500
                         });
                     }
-
+                    
                 },
                 error: function(data) {
                     if (data.responseJSON.errors) {

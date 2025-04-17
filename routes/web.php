@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Website\HomeController;
+use App\Http\Controllers\Website\ProfileController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 
@@ -24,8 +25,23 @@ Route::group(
         Route::controller(LoginController::class)->group(function () {
             Route::get('login', 'showLoginForm')->name('login.get');
             Route::post('login', 'login')->name('login.post');
+            Route::post('logout' , 'logout')->name('logout.post');
         });
         ############################ End Auth ################################
+
+        ############################ Profile Routes ################################
+        Route::group(['middleware' =>'auth:web'] , function(){
+
+            Route::controller(ProfileController::class)->group(function(){
+                Route::get('user-profile' , 'showProfile')->name('profile');
+            });
+        });
+
+        ############################ End Profile Routes ############################
+
+
+
+
         Route::get('/home', [HomeController::class, 'index'])->name('website.home');
     }
 );

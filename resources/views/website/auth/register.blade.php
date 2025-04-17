@@ -6,70 +6,58 @@
 @section('content')
     <section class="login account footer-padding">
         <div class="container">
+           <form action="{{ route('website.register.post') }}" method="POST" id="registerForm">
+            @csrf
             <div class="login-section account-section">
                 <div class="review-form">
-                    <h5 class="comment-title">Create Account</h5>
+                    <h5 class="comment-title">{{ __('dashboard.create_account') }}</h5>
+                     @if ($errors->any())
+                         <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                         </div>
+                     @endif
+                     {{-- Name --}}
                     <div class=" account-inner-form">
                         <div class="review-form-name">
-                            <label for="fname" class="form-label">First Name*</label>
-                            <input type="text" id="fname" class="form-control" placeholder="First Name">
+                            <label for="fname" class="form-label">{{ __('dashboard.name') }}</label>
+                            <input type="text" name="name" id="fname" class="form-control" placeholder="{{ __('dashboard.name') }}">
                         </div>
-                        <div class="review-form-name">
-                            <label for="lname" class="form-label">Last Name*</label>
-                            <input type="text" id="lname" class="form-control" placeholder="Last Name">
-                        </div>
+                        
                     </div>
+                    {{-- Email --}}
                     <div class=" account-inner-form">
                         <div class="review-form-name">
-                            <label for="email" class="form-label">Email*</label>
-                            <input type="email" id="email" class="form-control" placeholder="user@gmail.com">
-                        </div>
-                        <div class="review-form-name">
-                            <label for="phone" class="form-label">Phone*</label>
-                            <input type="tel" id="phone" class="form-control" placeholder="+880388**0899">
+                            <label for="email" class="form-label">{{ __('dashboard.email') }}</label>
+                            <input type="email" name="email" id="email" class="form-control" placeholder="{{ __('dashboard.email') }}">
                         </div>
                     </div>
                     <div class="review-form-name">
-                        <label for="country" class="form-label">Country*</label>
-                        <select id="country" class="form-select">
-                            <option>Choose...</option>
-                            <option>Bangladesh</option>
-                            <option>United States</option>
-                            <option selected>United Kingdom</option>
-                        </select>
+                        @livewire('general.adress-drop-down-dependent')
                     </div>
-                    <div class="review-form-name address-form">
-                        <label for="address" class="form-label">Address*</label>
-                        <input type="text" id="address" class="form-control" placeholder="Enter your Address">
+                    {{-- password --}}
+                    <div class="review-form-name password-form">
+                        <label for="password" class="form-label">{{ __('dashboard.password') }}*</label>
+                        <input type="password" name="password" id="password" class="form-control" placeholder="{{ __('dashboard.password') }}">
                     </div>
-                    <div class=" account-inner-form city-inner-form">
-                        <div class="review-form-name">
-                            <label for="city" class="form-label">Town / City*</label>
-                            <select id="city" class="form-select">
-                                <option>Choose...</option>
-                                <option>Newyork</option>
-                                <option>Dhaka</option>
-                                <option selected>London</option>
-                            </select>
-                        </div>
-                        <div class="review-form-name">
-                            <label for="number" class="form-label">Postcode / ZIP*</label>
-                            <input type="number" id="number" class="form-control" placeholder="0000">
-                        </div>
-                    </div>
+                    {{-- Terms --}}
                     <div class="review-form-name checkbox">
                         <div class="checkbox-item">
-                            <input type="checkbox">
+                            <input type="checkbox" name="terms">
                             <p class="remember">
-                                I agree all terms and condition in <span class="inner-text">ShopUs.</span></p>
+                               {{__('dashboard.agree_all_terms')}}<span class="inner-text">{{ $setting->site_name }}</span></p>
                         </div>
                     </div>
                     <div class="login-btn text-center">
-                        <a href="#" class="shop-btn">Create an Account</a>
-                        <span class="shop-account">Already have an account ?<a href="login.html">Log In</a></span>
+                        <button type="submit" class="shop-btn">{{ __('dashboard.create_account') }}</button>
+                        <span class="shop-account">{{ __('dashboard.have_account') }} ?<a href="{{ route('website.login.get') }}">Log In</a></span>
                     </div>
                 </div>
             </div>
+           </form>
         </div>
     </section>
 @endsection

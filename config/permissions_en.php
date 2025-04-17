@@ -25,4 +25,5 @@ return [
     "comments" => "Manage Comments",
     "socials" => "Manage Socials",
     "menus" => "Manage Menus",
+    
 ];

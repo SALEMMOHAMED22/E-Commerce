@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
@@ -42,5 +44,18 @@ class LoginController extends Controller
     {
         return view('website.auth.login');
     }
+
+    public function authenticated(Request $request, $user)
+    {
+        Session::flash('success' ,  __('website.logged_in_successfully'));
+        return redirect()->route('website.profile');
+    }
+
+    public function loggedOut(Request $request){
+        return redirect()->route('website.login.get');
+    }
+
+
+
     
 }

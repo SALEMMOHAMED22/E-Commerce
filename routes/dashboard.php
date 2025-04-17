@@ -17,8 +17,8 @@ use App\Http\Controllers\Dashboard\{
     CategoryController,
     AttributeController,
     ContactController,
+    SliderController,
     UserController,
-    
 };
 use App\Http\Controllers\Dashboard\Auth\AuthController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -36,7 +36,7 @@ Route::group(
         'as' => 'dashboard.',
         'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
     ],
-    function () { 
+    function () {
         ############################ Auth ################################
 
         Route::get('login', [AuthController::class, 'showLoginForm'])->name('login');
@@ -51,7 +51,6 @@ Route::group(
                 Route::post('email', 'sendOtp')->name('email.post');
                 Route::get('verify/{email}', 'showOtpForm')->name('verify');
                 Route::post('verify', 'verifyOtp')->name('verify.post');
-
             });
             Route::controller(ResetPasswordController::class)->group(function () {
                 Route::get('reset/{email}', 'showresetForm')->name('reset');
@@ -97,43 +96,43 @@ Route::group(
 
         ######################### Categories Start #################################
         // Route::group(['middleware' => 'Can:categories'] , function(){
-            Route::resource('categories' , CategoryController::class)->except('show');
-            Route::get('categories-all' , [CategoryController::class , 'getAll'])
+        Route::resource('categories', CategoryController::class)->except('show');
+        Route::get('categories-all', [CategoryController::class, 'getAll'])
             ->name('categories.all');
         // });
         ######################### Categories End #################################
 
         ######################### Brands Start #################################
         // Route::group(['middleware' => 'can:brands'] , function(){
-            Route::resource('brands' , BrandController::class)->except('show');
-            Route::get('brands-all' , [BrandController::class , 'getAll'] )->name('brands.all');
+        Route::resource('brands', BrandController::class)->except('show');
+        Route::get('brands-all', [BrandController::class, 'getAll'])->name('brands.all');
         // });
         ######################### Brands End #################################
 
         ######################### coupons Start #################################
         // Route::group(['middleware' => 'can:coupons'] , function(){
-            Route::resource('coupons' , CouponController::class)->except('show');
-            Route::get('coupons-all' , [CouponController::class , 'getAll'] )->name('coupons.all');
+        Route::resource('coupons', CouponController::class)->except('show');
+        Route::get('coupons-all', [CouponController::class, 'getAll'])->name('coupons.all');
         // });
         ######################### coupons End #################################
 
-          ######################### Faq Start #################################
+        ######################### Faq Start #################################
         // Route::group(['middleware' => 'can:faqs'] , function(){
-            Route::resource('faqs' , FaqController::class);
-            Route::get('faqs-all' , [FaqController::class , 'getAll'] )->name('faqs.all');
+        Route::resource('faqs', FaqController::class);
+        Route::get('faqs-all', [FaqController::class, 'getAll'])->name('faqs.all');
         // });
         ######################### Faq End #################################
 
-          ######################### settings Start #################################
+        ######################### settings Start #################################
         // Route::group(['middleware' => 'can:settings'] , function(){
-            Route::get('settings' ,[ SettingController::class , 'index'])->name('settings.index');
-            Route::put('settings/{id}' , [SettingController::class , 'update'] )->name('settings.update');
+        Route::get('settings', [SettingController::class, 'index'])->name('settings.index');
+        Route::put('settings/{id}', [SettingController::class, 'update'])->name('settings.update');
         // });
         ######################### settings End #################################
-         ######################### attribute Start #################################
+        ######################### attribute Start #################################
         // Route::group(['middleware' => 'can:attribute'] , function(){
-            Route::resource('attributes' , AttributeController::class);
-            Route::get('attributes-all' , [AttributeController::class , 'getAll'] )->name('attributes.all');
+        Route::resource('attributes', AttributeController::class);
+        Route::get('attributes-all', [AttributeController::class, 'getAll'])->name('attributes.all');
         // });
         ######################### attribute End #################################
 
@@ -144,32 +143,42 @@ Route::group(
 
 
         // Route::group(['middleware' => 'can:products'], function () {
-            Route::resource('products', ProductController::class);
-            Route::get('products-all', [ProductController::class, 'getAll'])->name('products.all');
-            Route::post('products/change-status', [ProductController::class, 'changeStatus'])->name('products.changeStatus');
+        Route::resource('products', ProductController::class);
+        Route::get('products-all', [ProductController::class, 'getAll'])->name('products.all');
+        Route::post('products/change-status', [ProductController::class, 'changeStatus'])->name('products.changeStatus');
 
-            Route::get('product/variants/{variant_id}', [ProductController::class, 'deleteVariant'])->name('products.variants.delete');
+        Route::get('product/variants/{variant_id}', [ProductController::class, 'deleteVariant'])->name('products.variants.delete');
         // });
-            
-        
+
+
         ######################### End Products  #################################
 
 
-         ######################### users Start #################################
+        ######################### users Start #################################
         // Route::group(['middleware' => 'Can:users'] , function(){
-            Route::resource('users' , UserController::class);
-            Route::post('users/status' , [UserController::class , 'changeStatus'] )->name('users.status');
-            Route::get('users-all' , [UserController::class , 'getAll'])
+        Route::resource('users', UserController::class);
+        Route::post('users/status', [UserController::class, 'changeStatus'])->name('users.status');
+        Route::get('users-all', [UserController::class, 'getAll'])
             ->name('users.all');
         // });
         ######################### users End #################################
-         ######################### contacts Start #################################
+        ######################### contacts Start #################################
         // Route::group(['middleware' => 'Can:contact'] , function(){
-           
-            Route::get('contacts' , [ContactController::class , 'index'])
+
+        Route::get('contacts', [ContactController::class, 'index'])
             ->name('contacts.index');
         // });
         ######################### contacts End #################################
-        
+
+        ######################### Slider Start #################################
+        // Route::group(['middleware' => 'can:sliders'], function () {
+                Route::get('sliders' , [SliderController::class , 'index'])->name('sliders.index');
+                Route::post('sliders' , [SliderController::class , 'store'])->name('sliders.store');
+                Route::get('sliders-all' , [SliderController::class , 'getAll'])->name('sliders.all');
+                Route::get('remove/{id}' , [SliderController::class , 'destroy'])->name('sliders.destroy');
+        // });
+        ######################### Slider End #################################
+
+
     }
 );

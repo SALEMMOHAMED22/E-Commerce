@@ -250,4 +250,23 @@ return [
     'table_yajra_paragraph' => 'A dynamic table that displays data from a database with features such as searching, sorting, showing and hiding columns, and options to export, print, or copy data to Excel.',
     'contacts' => 'Contacts',
     'contacts_management' => 'Contacts Management',
+
+
+    // user 
+    'remember_me' => 'Remember Me',
+    'forget_password' => 'Forget Password',
+    'dont_have_account' => 'Don\'t Have Account',
+    'create_account' => 'Create Account',
+    'free' => 'Free',
+
+    'note'  => 'Note',
+    'note_ar'  => 'Note Arabic',
+    'note_en'  => 'Note English',
+
+    'slider' => 'Slider',
+    'create_slider' => 'Create Slider',
+    'sliders' => 'Sliders',
+    'sliders_table' => 'Sliders Table',
+    'fullscreen' => 'Fullscreen',
+    
 ];

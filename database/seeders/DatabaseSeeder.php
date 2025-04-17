@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Contact;
+use App\Models\Slider;
 use App\Models\User;
 use Attribute;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -34,6 +35,7 @@ class DatabaseSeeder extends Seeder
             AttributeSeeder::class,
             UserSeeder::class,
             ContactSeeder::class,
+            SliderSeeder::class,
             
         ]);
     }

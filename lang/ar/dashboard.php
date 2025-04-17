@@ -266,4 +266,22 @@ return [
 'table_yajra_paragraph' => 'جدول ديناميكي يعرض البيانات من قاعدة البيانت مع ميزات مثل البحث ، الفرز ، اظهار واخفاء الاعمده وخيارات لتصدير البيانات الي Excel او طباعتها او نسخها ',
 'contacts' => 'الرسائل',
 'contacts_management' => 'اداره الرسائل',
+
+// User 
+
+'remember_me' => 'تذكرني',
+'forget_password' => 'نسيت كلمة المرور',
+'dont_have_account' => 'ليس لدي حساب' ,
+'create_account' => 'انشاء حساب' ,
+'free'=> 'مجاني',
+'note' => 'ملاحظه',
+'slider' => 'سلايدر',
+'sliders' => 'سلايدرات',
+'sliders_table' => 'جدول السلايدرات',
+'create_slider' => 'انشاء سلايدر',
+'slider_images' => 'صور السلايدر',
+'fullscreen' => 'الشاشه الكامله',
+
 ];
+
+ 
