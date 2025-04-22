@@ -50,7 +50,7 @@
                                     @include('dashboard.includes.validation-errors')
 
                                     <p class="card-text">{{ __('dashboard.form_edit') }}.</p>
-                                    <form class="form" action="{{ route('dashboard.categories.update', $category->id) }}" method="POST" >
+                                    <form class="form" action="{{ route('dashboard.categories.update', $category->id) }}" method="POST" enctype="multipart/form-data" >
                                         @csrf
                                         @method('PUT')
 
@@ -66,6 +66,11 @@
                                                 <label for="eventRegInput1">{{ __('dashboard.name_ar') }}</label>
                                                 <input type="text" value="{{ $category->getTranslation('name', 'ar') }}" class="form-control"
                                                     placeholder="{{ __('dashboard.name_ar') }}" name="name[ar]">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="icon">{{ __('dashboard.icon') }}</label>
+                                                <input type="file" name="icon" class="form-control" id="single-image-edit"
+                                                    placeholder="{{ __('dashboard.icon') }}">
                                             </div>
                                             <div class="form-group">
                                                 <label for="eventRegInput1">{{ __('dashboard.select_parent') }}</label>
@@ -113,3 +118,23 @@
     </div>
 
 @endsection
+
+@push('js')
+    <script>
+         var lang = "{{ app()->getLocale() }}";
+        $(function() {
+            $('#single-image-edit').fileinput({
+                theme: 'fa5',
+                language: lang,
+                allowedFileTypes: ['image'],
+                maxFileCount: 1,
+                enableResumableUpload: false,
+                showUpload: false,
+                initialPreviewAsData: true,
+                initialPreview: [
+                    "{{ asset($category->icon) }}",
+                ],
+            });
+        });
+    </script>
+@endpush

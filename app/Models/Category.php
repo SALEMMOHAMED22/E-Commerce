@@ -19,6 +19,7 @@ class Category extends Model
         'status',
         'slug',
         'parent',
+        'icon',
     ];
 
 
@@ -63,4 +64,8 @@ class Category extends Model
     public function parent(){
         return $this->belongsTo(Category::class , 'parent');
     }
-}
+
+    public function getIconAttribute($icon){
+        return 'uploads/categories/' . $icon;
+    }
+}   

@@ -5,16 +5,18 @@ namespace App\Services\Dashboard;
 use App\Models\Category;
 use Yajra\DataTables\Facades\DataTables;
 use App\Repositories\Dashboard\CategoryRepository;
+use App\Utils\ImageManger;
 
 class CategoryService
 {
     /**
      * Create a new class instance.
      */
-    protected $categoryRepository;
-    public function __construct(CategoryRepository $categoryRepository)
+    protected $categoryRepository , $imageManger;
+    public function __construct(CategoryRepository $categoryRepository , ImageManger $imageManger)
     {
-        return $this->categoryRepository = $categoryRepository;
+         $this->categoryRepository = $categoryRepository;
+         $this->imageManger = $imageManger;
     }
 
     public function findById($id){
@@ -39,6 +41,9 @@ class CategoryService
         ->addColumn('products_count' , function($category){
             return $category->products()->count() == 0 ? __('dashboard.not_found')  :  $category->products()->count() ;
         })
+         ->addColumn('icon' , function($category){
+            return view('dashboard.categories.icons' , compact('category'));
+        })
          ->addColumn('action' , function($category){
             return view('dashboard.categories.actions' , compact('category'));
         })
@@ -46,11 +51,21 @@ class CategoryService
     }
 
     public function store($data){
+      if(array_key_exists('icon' , $data) && $data['icon'] != null){
+          $file_name = $this->imageManger->uploadSingleImage('/' , $data['icon'] , 'categories');
+          $data['icon'] = $file_name;
+      }
         return $this->categoryRepository->store($data);
-    }
+    } 
 
     public function update($data){
         $category = $this->categoryRepository->findById($data['id']);
+        if(array_key_exists('icon' , $data) && $data['icon'] != null){
+            //delete old logo
+            $this->imageManger->deleteImageFromLocal($category->icon);
+            $file_name = $this->imageManger->uploadSingleImage('/' , $data['icon'] , 'categories');
+            $data['icon'] = $file_name;
+        }
         if(!$category){
             return false;
         }

@@ -1035,7 +1035,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="about.html">
+                            <a href="{{ route('website.about-us') }}">
                                 <span class="list-text">About</span>
                             </a>
                         </li>

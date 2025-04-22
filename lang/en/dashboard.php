@@ -268,5 +268,7 @@ return [
     'sliders' => 'Sliders',
     'sliders_table' => 'Sliders Table',
     'fullscreen' => 'Fullscreen',
+    'icon' => 'Icon',
+    'select_parent' => 'Select Parent',
     
 ];

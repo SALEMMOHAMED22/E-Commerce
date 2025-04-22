@@ -50,7 +50,7 @@
                                     @include('dashboard.includes.validation-errors')
 
                                     <p class="card-text">{{ __('dashboard.form_edit') }}.</p>
-                                    <form class="form" action="{{ route('dashboard.categories.store')}}" method="POST" >
+                                    <form class="form" action="{{ route('dashboard.categories.store')}}" method="POST" enctype="multipart/form-data" >
                                         @csrf
 
                                         <div class="form-body">
@@ -64,6 +64,13 @@
                                                 <input type="text" value="{{ old('name[ar]')}}" class="form-control"
                                                     placeholder="{{ __('dashboard.name_ar') }}" name="name[ar]">
                                             </div>
+
+                                            <div class="form-group">
+                                                <label for="icon">{{ __('dashboard.icon') }}</label>
+                                                <input type="file" name="icon" class="form-control" id="single-image"
+                                                    placeholder="{{ __('dashboard.icon') }}">
+                                            </div>
+
                                             <div class="form-group">
                                                 <label for="eventRegInput1">{{ __('dashboard.select_parent') }}</label>
                                                 <select name="parent" class="form-control">

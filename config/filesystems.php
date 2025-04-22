@@ -81,6 +81,13 @@ return [
             'visibility' => 'public',
             'throw' => false,
         ],
+        'categories' => [
+            'driver' => 'local',
+            'root' => public_path('/uploads/categories'),
+            'url' => env('APP_URL').'/uploads/categories',
+            'visibility' => 'public',
+            'throw' => false,
+        ],
 
         
 

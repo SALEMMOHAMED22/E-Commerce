@@ -61,6 +61,7 @@
                                         <th>{{ __('dashboard.name') }}</th>
                                         <th>{{ __('dashboard.status') }}</th>
                                         <th>{{ __('dashboard.products_count') }}</th>
+                                        <th>{{ __('dashboard.icon') }}</th>
                                         <th>{{ __('dashboard.created_at') }} </th>
                                         <th>{{ __('dashboard.action') }}</th>
                                         {{-- <th>Salary</th>  --}}
@@ -75,6 +76,7 @@
                                         <th>{{ __('dashboard.name') }}</th>
                                         <th>{{ __('dashboard.status') }}</th>
                                         <th>{{ __('dashboard.products_count') }}</th>
+                                        <th>{{ __('dashboard.icon') }}</th>
                                         <th>{{ __('dashboard.created_at') }} </th>
                                         <th>{{ __('dashboard.action') }}</th>
                                         {{-- <th>Salary</th>  --}}
@@ -138,6 +140,10 @@
                 {
                     data: 'products_count'
                 },
+                {
+                    data: 'icon'
+                },
+
                 {
                     data: 'created_at',
 

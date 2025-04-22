@@ -23,21 +23,25 @@ class CategorySeeder extends Seeder
                 'name' => ['en' => 'category 1' , 'ar' => 'القسم الاول'],
                 'status' => 1,
                 'parent' => null,
+                'icon' => 'icon.jpeg',
             ],
             [
                 'name' => ['en' => 'category 2' , 'ar' => 'القسم الثاني'],
                 'status' => 1,
                 'parent' => null,
+                'icon' => 'icon.jpeg',
             ],
             [
                 'name' => ['en' => 'category 3' , 'ar' => 'القسم الثالث'],
                 'status' => 1,
                 'parent' => null,
+                'icon' => 'icon.jpeg',
             ],
             [
                 'name' => ['en' => 'category 4' , 'ar' => 'القسم الرايع'],
                 'status' => 1,
                 'parent' => null,
+                'icon' => 'icon.jpeg',
             ],
         ];
 

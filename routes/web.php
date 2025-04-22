@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Website\AboutUsController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Website\HomeController;
@@ -38,11 +39,9 @@ Route::group(
         });
 
         ############################ End Profile Routes ############################
-
-
-
-
         Route::get('/home', [HomeController::class, 'index'])->name('website.home');
+
+        Route::get('/about-us' , [AboutUsController::class , 'showAboutUsPage'])->name('about-us');
     }
 );
 Auth::routes();

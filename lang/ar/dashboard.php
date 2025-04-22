@@ -281,6 +281,9 @@ return [
 'create_slider' => 'انشاء سلايدر',
 'slider_images' => 'صور السلايدر',
 'fullscreen' => 'الشاشه الكامله',
+'icon' => 'الايقونه',
+'select_icon' => 'اختر الايقونه',
+'select_parent' => 'اختر الفرع',
 
 ];
 
