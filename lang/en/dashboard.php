@@ -270,5 +270,19 @@ return [
     'fullscreen' => 'Fullscreen',
     'icon' => 'Icon',
     'select_parent' => 'Select Parent',
+
+    // pages 
+    'pages'            => 'Pages',
+    'pages_table'      => 'Pages Table',
+    'create_page'      => 'Create Page',
+    'title'            => 'Title',
+    'content'          => 'Content',
+    'title_ar'         => 'Title Arabic',
+    'title_en'         => 'Title English',
+    'content_ar'       => 'Content Arabic',
+    'content_en'       => 'Content English',
+    'about_us'         => 'Know About ',
+    
+
     
 ];

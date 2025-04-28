@@ -5,14 +5,13 @@
                         data-i18n="nav.dash.main">Dashboard</span><span
                         class="badge badge badge-info badge-pill float-right mr-2">3</span></a>
                 <ul class="menu-content">
-                    <li class=""><a class="menu-item" href="#"
-                            data-i18n="nav.dash.ecommerce">eCommerce</a>
+                    <li class=""><a class="menu-item" href="#" data-i18n="nav.dash.ecommerce">eCommerce</a>
                     </li>
-                   
+
                 </ul>
             </li>
 
-            <li class=" nav-item"><a href="index.html"><i class="la la-home"></i><span class="menu-title"
+            <li class=" nav-item"><a href="index.html"><i class="la la-folder"></i><span class="menu-title"
                         data-i18n="nav.dash.main">{{ __('dashboard.categories') }}</span><span
                         class="badge badge badge-info badge-pill float-right mr-2">{{ $category_count }}</span></a>
                 <ul class="menu-content">
@@ -25,7 +24,7 @@
 
                 </ul>
             </li>
-            <li class=" nav-item"><a href="index.html"><i class="la la-home"></i><span class="menu-title"
+            <li class=" nav-item"><a href="index.html"><i class="la la-tag"></i><span class="menu-title"
                         data-i18n="nav.dash.main">{{ __('dashboard.brands') }}</span><span
                         class="badge badge badge-info badge-pill float-right mr-2">{{ $brand_count }}</span></a>
                 <ul class="menu-content">
@@ -38,7 +37,7 @@
 
                 </ul>
             </li>
-            <li class=" nav-item"><a href="index.html"><i class="la la-home"></i><span class="menu-title"
+            <li class=" nav-item"><a href="index.html"><i class="la la-ticket"></i><span class="menu-title"
                         data-i18n="nav.dash.main">{{ __('dashboard.coupons') }}</span><span
                         class="badge badge badge-info badge-pill float-right mr-2">{{ $coupon_count }}</span></a>
                 <ul class="menu-content">
@@ -118,18 +117,18 @@
 
 
         <li class=" nav-item"><a href="index.html"><i class="la la-home"></i><span class="menu-title"
-                data-i18n="nav.dash.main">{{ __('dashboard.contacts_management') }}</span><span
-                class="badge badge badge-info badge-pill float-right mr-2">{{ $contacts_count }}</span></a>
-        <ul class="menu-content">
-            <li class=""><a class="menu-item" href="{{ route('dashboard.contacts.index') }}"
-                    data-i18n="nav.dash.ecommerce">{{ __('dashboard.contacts') }}</a>
-            </li>
-            {{-- <li><a class="menu-item" href="{{ route('dashboard.admins.create') }}"
+                    data-i18n="nav.dash.main">{{ __('dashboard.contacts_management') }}</span><span
+                    class="badge badge badge-info badge-pill float-right mr-2">{{ $contacts_count }}</span></a>
+            <ul class="menu-content">
+                <li class=""><a class="menu-item" href="{{ route('dashboard.contacts.index') }}"
+                        data-i18n="nav.dash.ecommerce">{{ __('dashboard.contacts') }}</a>
+                </li>
+                {{-- <li><a class="menu-item" href="{{ route('dashboard.admins.create') }}"
             data-i18n="nav.dash.crypto">{{ __('dashboard.create_admins') }}</a>
     </li> --}}
 
-        </ul>
-    </li>
+            </ul>
+        </li>
         <li class=" navigation-header">
             <span data-i18n="nav.category.layouts">Layouts</span><i class="la la-ellipsis-h ft-minus"
                 data-toggle="tooltip" data-placement="right" data-original-title="Layouts"></i>
@@ -171,14 +170,28 @@
             </ul>
         </li>
         <li class=" nav-item"><a href="index.html"><i class="la la-home"></i><span class="menu-title"
-                data-i18n="nav.dash.main">{{ __('dashboard.sliders') }}</span><span
-                class="badge badge badge-info badge-pill float-right mr-2"></span></a>
-        <ul class="menu-content">
-            <li class=""><a class="menu-item" href="{{ route('dashboard.sliders.index') }}"
-                    data-i18n="nav.dash.ecommerce">{{ __('dashboard.sliders') }}</a>
-            </li>
-        </ul>
-    </li>
+                    data-i18n="nav.dash.main">{{ __('dashboard.sliders') }}</span><span
+                    class="badge badge badge-info badge-pill float-right mr-2"></span></a>
+            <ul class="menu-content">
+                <li class=""><a class="menu-item" href="{{ route('dashboard.sliders.index') }}"
+                        data-i18n="nav.dash.ecommerce">{{ __('dashboard.sliders') }}</a>
+                </li>
+            </ul>
+        </li>
+
+        <li class=" nav-item"><a href="index.html"><i class="la la-home"></i><span class="menu-title"
+                    data-i18n="nav.dash.main">{{ __('dashboard.pages') }}</span><span
+                    class="badge badge badge-info badge-pill float-right mr-2"></span></a>
+            <ul class="menu-content">
+                <li class=""><a class="menu-item" href="{{ route('dashboard.pages.index') }}"
+                        data-i18n="nav.dash.ecommerce">{{ __('dashboard.pages') }}</a>
+                </li>
+                <li><a class="menu-item" href="{{ route('dashboard.pages.create') }}"
+                        data-i18n="nav.dash.crypto">{{ __('dashboard.create_page') }}</a>
+                </li>
+
+            </ul>
+        </li>
         <li class=" nav-item"><a href="#"><i class="la la-columns"></i><span class="menu-title"
                     data-i18n="nav.page_layouts.main">Page layouts</span><span
                     class="badge badge badge-pill badge-danger float-right mr-2">New</span></a>
@@ -846,8 +859,7 @@
                 </li>
                 <li><a class="menu-item" href="card-charts.html" data-i18n="nav.cards.card_charts">Charts</a>
                 </li>
-                <li><a class="menu-item" href="card-inter.html"
-                        data-i18n="nav.cards.card_inter">Inter</a>
+                <li><a class="menu-item" href="card-inter.html" data-i18n="nav.cards.card_inter">Inter</a>
                 </li>
                 <li><a class="menu-item" href="card-maps.html" data-i18n="nav.cards.card_maps">Maps</a>
                 </li>
@@ -996,7 +1008,8 @@
             <ul class="menu-content">
                 <li><a class="menu-item" href="icons-feather.html" data-i18n="nav.icons.icons_feather">Feather</a>
                 </li>
-                <li><a class="menu-item" href="icons-line-awesome.html" data-i18n="nav.icons.icons_line_awesome">Line
+                <li><a class="menu-item" href="icons-line-awesome.html"
+                        data-i18n="nav.icons.icons_line_awesome">Line
                         Awesome</a>
                 </li>
                 <li><a class="menu-item" href="icons-meteocons.html"
@@ -1007,8 +1020,8 @@
                 </li>
             </ul>
         </li>
-        <li class=" nav-item"><a href="animation.html"><i class="la la-spinner spinner"></i><span class="menu-title"
-                    data-i18n="nav.animation.main">Animation</span></a>
+        <li class=" nav-item"><a href="animation.html"><i class="la la-spinner spinner"></i><span
+                    class="menu-title" data-i18n="nav.animation.main">Animation</span></a>
         </li>
         <li class=" navigation-header">
             <span data-i18n="nav.category.forms">Forms</span><i class="la la-ellipsis-h ft-minus"

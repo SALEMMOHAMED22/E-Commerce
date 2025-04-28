@@ -1,6 +1,6 @@
 @extends('layouts.dashboard.app')
 @section('title')
-    {{ __('dashboard.sliders') }}
+    {{ __('dashboard.pages') }}
 @endsection
 
 @section('content')
@@ -8,15 +8,15 @@
         <div class="content-wrapper">
             <div class="content-header row">
                 <div class="content-header-left col-md-6 col-12 mb-2 breadcrumb-new">
-                    <h3 class="content-header-title mb-0 d-inline-block">{{ __('dashboard.brands_table') }}</h3>
+                    <h3 class="content-header-title mb-0 d-inline-block">{{ __('dashboard.pages_table') }}</h3>
                     <div class="row breadcrumbs-top d-inline-block">
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a
                                         href="{{ route('dashboard.welcome') }}">{{ __('dashboard.dashboard') }}</a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="{{ route('dashboard.sliders.index') }}">
-                                        {{ __('dashboard.sliders') }}</a>
+                                <li class="breadcrumb-item"><a href="{{ route('dashboard.pages.index') }}">
+                                        {{ __('dashboard.pages') }}</a>
                                 </li>
 
 
@@ -32,7 +32,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <h4 class="card-title" id="basic-layout-colored-form-control">
-                                    {{ __('dashboard.sliders') }}
+                                    {{ __('dashboard.pages') }}
                                 </h4>
                                 <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                                 <div class="heading-elements">
@@ -48,23 +48,20 @@
                                 <div class="card-body">
 
                                     {{-- create brand modal --}}
-                                    <button type="button" class="btn btn-outline-success " data-toggle="modal"
-                                        data-target="#createSliderModal">
-                                        {{ __('dashboard.create_slider') }}
-                                    </button>
+                               
 
-                                    {{-- modal --}}
-                                    @include('dashboard.sliders._create')
-
-                                    {{-- end create brand modal --}}
-
+                                    <a href="{{ route('dashboard.pages.create') }}" type="button" class="btn btn-outline-success" >
+                                        {{ __('dashboard.create_page') }}
+                                    </a>
+                                   
                                     <p class="card-text">{{ __('dashboard.table_yajra_paragraph') }}.</p>
                                     <table id="yajra_table" class="table table-striped table-bordered language-file">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
+                                                <th>{{ __('dashboard.title') }}</th>
                                                 <th>{{ __('dashboard.image') }}</th>
-                                                <th>{{ __('dashboard.note') }}</th>
+                                                <th>{{ __('dashboard.content') }}</th>
                                                 <th>{{ __('dashboard.created_at') }}</th>
                                                 <th>{{ __('dashboard.actions') }}</th>
                                             </tr>
@@ -76,8 +73,9 @@
                                         <tfoot>
                                             <tr>
                                                 <th>#</th>
+                                                <th>{{ __('dashboard.title') }}</th>
                                                 <th>{{ __('dashboard.image') }}</th>
-                                                <th>{{ __('dashboard.note') }}</th>
+                                                <th>{{ __('dashboard.content') }}</th>
                                                 <th>{{ __('dashboard.created_at') }}</th>
                                                 <th>{{ __('dashboard.actions') }}</th>
                                             </tr>
@@ -97,13 +95,13 @@
 @push('js')
 
     {{-- display errors during create brand --}}
-    @if ($errors->any())
+    {{-- @if ($errors->any())
         <script>
             $(document).ready(function() {
                 $('#exampleModal').modal('show');
             });
         </script>
-    @endif
+    @endif --}}
 
     {{--  Data tables  --}}
     <script>
@@ -118,7 +116,7 @@
             // rowReorder: true,
             // scroller: true,
             // scrollY: 900,
-            select: true,
+            select: false,
             responsive: {
                 details: {
                     display: DataTable.Responsive.display.modal({
@@ -132,23 +130,28 @@
                     })
                 }
             },
-            ajax: "{{ route('dashboard.sliders.all') }}",
+            ajax: "{{ route('dashboard.pages.all') }}",
             columns: [{
                     data: 'DT_RowIndex',
                     searchable: false,
                     orderable: false,
                 },
                 {
-                    data: 'file_name',
-                    // name: 'name',
+                    data: 'title',
+                    name: 'title',
                 },
                 {
-                    data: 'note',
-                    // name: 'logo',
+                    data: 'image',
+                    name: 'image',
+                },
+                {
+                    data: 'content',
+                    name: 'content'
+
                 },
                 {
                     data: 'created_at',
-                    // name: 'created_at'
+                    name: 'created_at'
 
                 },
                 {
@@ -172,11 +175,11 @@
 
         });
 
-        // Delete Slider 
+          // Delete page  
         $(document).on('click', '.delete_confirm_btn', function(e) {
             e.preventDefault();
 
-            var slider_id = $(this).attr('slider-id');
+            var page_id = $(this).attr('page-id');
 
             Swal.fire({
                 title: "Are you sure?",
@@ -189,9 +192,12 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     $.ajax({
-                        url: "{{ route('dashboard.sliders.destroy', 'id') }}".replace('id',
-                            slider_id),
-                        type: "GET",
+                        url: "{{ route('dashboard.pages.destroy', 'id') }}".replace('id',
+                        page_id),
+                        type: "DELETE",
+                        data: {
+                            _token: "{{ csrf_token() }}"
+                        },
                         success: function(response) {
                             if (response.status == 'success') {
                                 Swal.fire({

@@ -17,6 +17,7 @@ use App\Http\Controllers\Dashboard\{
     CategoryController,
     AttributeController,
     ContactController,
+    PageController,
     SliderController,
     UserController,
 };
@@ -178,6 +179,14 @@ Route::group(
                 Route::get('remove/{id}' , [SliderController::class , 'destroy'])->name('sliders.destroy');
         // });
         ######################### Slider End #################################
+
+        ######################### Page Routes #################################
+        // Route::group(['middleware' => 'can:pages'], function () {
+           Route::resource('pages', PageController::class);
+           Route::get('pages-all' , [PageController::class , 'getAll'])->name('pages.all'); 
+        // });
+        ######################### Page Routes #################################
+
 
 
     }

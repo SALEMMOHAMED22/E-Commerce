@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Website\AboutUsController;
+use App\Http\Controllers\Website\DynamicPageController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Website\HomeController;
@@ -37,11 +38,12 @@ Route::group(
                 Route::get('user-profile' , 'showProfile')->name('profile');
             });
         });
-
         ############################ End Profile Routes ############################
+
         Route::get('/home', [HomeController::class, 'index'])->name('website.home');
 
-        Route::get('/about-us' , [AboutUsController::class , 'showAboutUsPage'])->name('about-us');
+        // Route::get('/about-us' , [AboutUsController::class , 'showAboutUsPage'])->name('about-us');
+        Route::get('/{slug}' , [DynamicPageController::class , 'showDynamicPage'])->name('dynamic.page');
     }
 );
 Auth::routes();
