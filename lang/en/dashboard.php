@@ -282,6 +282,10 @@ return [
     'content_ar'       => 'Content Arabic',
     'content_en'       => 'Content English',
     'about_us'         => 'Know About ',
+    'subject'          => 'Subject',
+    'message'          => 'Message',
+    'send'             => 'Send',
+    'faq_questions'     => 'Faq Questions',
     
 
     

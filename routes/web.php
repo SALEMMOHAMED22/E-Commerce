@@ -1,13 +1,14 @@
 <?php
 
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\Website\AboutUsController;
-use App\Http\Controllers\Website\DynamicPageController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Website\FaqController;
 use App\Http\Controllers\Website\HomeController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Website\AboutUsController;
 use App\Http\Controllers\Website\ProfileController;
+use App\Http\Controllers\Website\DynamicPageController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 
@@ -43,7 +44,8 @@ Route::group(
         Route::get('/home', [HomeController::class, 'index'])->name('website.home');
 
         // Route::get('/about-us' , [AboutUsController::class , 'showAboutUsPage'])->name('about-us');
-        Route::get('/{slug}' , [DynamicPageController::class , 'showDynamicPage'])->name('dynamic.page');
+        Route::get('page/{slug}' , [DynamicPageController::class , 'showDynamicPage'])->name('dynamic.page');
+        Route::get('faqs'  , [FaqController::class , 'showFaqsPage'])->name('faqs.index');
     }
 );
 Auth::routes();

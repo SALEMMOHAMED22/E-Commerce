@@ -140,8 +140,8 @@
                 <li class=""><a class="menu-item" href="{{ route('dashboard.faqs.index') }}"
                         data-i18n="nav.dash.ecommerce">{{ __('dashboard.faqs') }}</a>
                 </li>
-                {{-- <li><a class="menu-item" href="{{ route('dashboard.coupons.create') }}"
-            data-i18n="nav.dash.crypto">{{ __('dashboard.create_coupons') }}</a> </li> --}}
+                <li><a class="menu-item" href="{{ route('dashboard.faq.questions.index') }}"
+            data-i18n="nav.dash.crypto">{{ __('dashboard.faq_questions') }}</a> </li>
             </ul>
         </li>
         <li class=" nav-item"><a href="index.html"><i class="la la-home"></i><span class="menu-title"

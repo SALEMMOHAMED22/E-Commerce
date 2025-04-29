@@ -51,6 +51,7 @@
                                 <div class="card-body">
                                     {{-- alert --}}
                                     @include('dashboard.includes.validation-errors')
+                                    @include('dashboard.includes.alert')
 
                                     {{-- <p class="card-text">{{ __('dashboard.form_store') }}.</p> --}}
                                     <form class="form" action="{{ route('dashboard.pages.store') }}" method="POST"

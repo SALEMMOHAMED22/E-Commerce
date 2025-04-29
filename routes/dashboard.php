@@ -17,6 +17,7 @@ use App\Http\Controllers\Dashboard\{
     CategoryController,
     AttributeController,
     ContactController,
+    FaqQuestionController,
     PageController,
     SliderController,
     UserController,
@@ -123,6 +124,13 @@ Route::group(
         Route::get('faqs-all', [FaqController::class, 'getAll'])->name('faqs.all');
         // });
         ######################### Faq End #################################
+        ######################### Faq Question Start #################################
+        // Route::group(['middleware' => 'can:faqs'] , function(){
+        Route::get('faq-questions' , [FaqQuestionController::class , 'index'])->name('faq.questions.index');
+        Route::delete('faq-questions/{id}' , [FaqQuestionController::class , 'destroy'])->name('faq.questions.destroy');
+        Route::get('faq-questions-all', [FaqQuestionController::class, 'getAll'])->name('faq.questions.all');
+        // });
+        ######################### Faq Question End #################################
 
         ######################### settings Start #################################
         // Route::group(['middleware' => 'can:settings'] , function(){

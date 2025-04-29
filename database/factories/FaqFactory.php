@@ -22,8 +22,8 @@ class FaqFactory extends Factory
                 'ar' => $this->faker->sentence(5) . ' ؟',
             ],
             'answer' => [
-                'en' => $this->faker->paragraph(3),
-                'ar' => $this->faker->paragraph(3),
+                'en' => $this->faker->paragraph(5),
+                'ar' => $this->faker->paragraph(5),
             ]
         ];
     }
