@@ -16,5 +16,26 @@ return[
     'error' => 'Error',
     'faq-question-created' => 'Faq Question Created',
     'faq-question-failed' => 'Faq Question Failed',
+    'brands_of_categories' => 'Brands Of Categories',
+    'our_categories' => 'Our Categories',
+    'view_all' => 'View All',
+    'has_variants' => 'Has Variants',
+    'showing' => 'Showing',
+    'of' => 'Of',
+    'results' => 'Results',
+    'view_details' => 'View Details',
+    'no_products' => 'Empty! You don’t Cart any Products' ,
+    'back_to_shop' => 'Back To Shop',
+    'new_arrivals' => 'New Arrivals',
+    'flash_sale' => 'Flash Sale',
+    'days' => 'Days',
+    'minuts' => 'Minutes',
+    'seconds' => 'Seconds',
+    'hours' => 'Hours',
+
+
+    
+
+    
     
 ];

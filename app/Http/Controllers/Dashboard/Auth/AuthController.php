@@ -35,7 +35,7 @@ class AuthController extends Controller
 
     public function login(LoginAdminRequest $request){
 
-        $credintials = $request->only('email' , 'password');
+        $credintials = $request->only(['email' , 'password']);
         if($this->authService->login($credintials ,'admin', $request->remember)){
             return redirect()->intended(route('dashboard.welcome'));
         }else{

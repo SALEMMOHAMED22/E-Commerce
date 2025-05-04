@@ -61,6 +61,12 @@ class Product extends Model
     {
         return !$this->has_variants;
     }
+    
+
+    public function scopeActive($query){
+        return $query->where('status' , 1);
+    }
+
 
     // accessores
 
@@ -73,23 +79,32 @@ class Product extends Model
     {
         return date('d/m/Y H:i a', strtotime($value));
     }
-    public function hasVariantsTranslated(){
-      
+    public function hasVariantsTranslated()
+    {
+
         return $this->has_variants == 1 ? __('dashboard.has_variants') : __('dashboard.no_variants');
     }
-    public function getStatusTranslated(){
-      
+    public function getStatusTranslated()
+    {
 
-            return $this->status == 1 ? __('dashboard.active') : __('dashboard.inactive');
-        
+
+        return $this->status == 1 ? __('dashboard.active') : __('dashboard.inactive');
     }
 
-    public function priceAttribute(){
+    public function priceAttribute()
+    {
         return $this->has_variants == 0 ? number_format($this->price) : __('dashboard.has_variants');
     }
-    public function quantityAttribute(){
+    public function quantityAttribute()
+    {
         return $this->has_variants == 0 ? $this->quantity : __('dashboard.has_variants');
     }
-    
 
+    public function getPriceAfterDiscount()
+    {
+        if ($this->has_discount) {
+            return $this->price - $this->discount;
+        }
+        return $this->price;
+    }
 }

@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+     {{-- breadcrumb and header title--}}
     <section class="blog about-blog">
         <div class="container">
             <div class="blog-bradcrum">

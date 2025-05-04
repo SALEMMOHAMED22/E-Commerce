@@ -17,6 +17,10 @@ return [
 'error' => 'خطأ',
 'faq-question-created' => 'تم انشاء سؤال ',
 'faq-question-failed' => 'فشل انشاء سؤال ',
+'brands_of_categories' => 'براندات للفئات',
+'our_categories' => 'فئاتنا',
+'view_all' => 'اظهار الكل',
+    
 
 
 
