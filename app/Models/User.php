@@ -78,6 +78,9 @@ class User extends Authenticatable
         return date('d/m/y H:i a' , strtotime($value) );
     }
 
+    public function wishlists(){
+        return $this->hasMany(Wishlist::class , 'user_id');
+    }
 
 
 

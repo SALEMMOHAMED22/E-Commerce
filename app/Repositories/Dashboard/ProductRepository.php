@@ -18,15 +18,15 @@ class ProductRepository
 
   public function createProductVariant($data)
   {
-    $productVariant = ProductVariant::create($data);
-    return $productVariant;
+    return ProductVariant::create($data);
+   
   }
 
   public function createVariantAttribute($data)
   {
-    $productVariantAttribute = VariantAttribute::create($data);
-    return $productVariantAttribute;
+    return VariantAttribute::create($data);
   }
+
 
   public function updateProduct($product ,$data){
     return $product->update($data);

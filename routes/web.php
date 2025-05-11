@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
+// use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Website\FaqController;
@@ -12,6 +12,7 @@ use App\Http\Controllers\Website\CategoryController;
 use App\Http\Controllers\Website\ProfileController;
 use App\Http\Controllers\Website\DynamicPageController;
 use App\Http\Controllers\Website\ProductController;
+use App\Http\Controllers\Website\WishlistController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 
@@ -34,18 +35,7 @@ Route::group(
             Route::post('logout', 'logout')->name('logout.post');
         });
         ############################ End Auth ################################
-
-        ############################ Profile Routes ################################
-        Route::group(['middleware' => 'auth:web'], function () {
-
-            Route::controller(ProfileController::class)->group(function () {
-                Route::get('user-profile', 'showProfile')->name('profile');
-            });
-        });
-        ############################ End Profile Routes ############################
-
         Route::get('/home', [HomeController::class, 'index'])->name('home');
-
         // Route::get('/about-us' , [AboutUsController::class , 'showAboutUsPage'])->name('about-us');
         Route::get('page/{slug}', [DynamicPageController::class, 'showDynamicPage'])->name('dynamic.page');
         Route::get('faqs', [FaqController::class, 'showFaqsPage'])->name('faqs.index');
@@ -59,14 +49,25 @@ Route::group(
             Route::get('categories/{slug}/products',   'showProductsByCategory')->name('products');
         });
 
+        Route::prefix('products')->name('products.')->controller(ProductController::class)->group(function () {
+            Route::get('/show/{slug}', 'showProductPage')->name('show');
+            Route::get('/{type}',  'getProductsByType')->name('by.type');
 
-        Route::get('products/show/{slug}' , [ProductController::class , 'showProductPage'])->name('products.show');
-        Route::get('products/{type}' , [ProductController::class , 'getProductsByType'])->name('products.by.type');
+            Route::get('/{slug}/related-products ', 'getRelatedProductsBySlug')->name('related');
+        });
+        Route::get('/shop', [HomeController::class, 'showShopPage'])->name('shop');
+         ############################ Profile Routes ################################
+         Route::group(['middleware' => 'auth:web'], function () {
 
+            Route::controller(ProfileController::class)->group(function () {
+                Route::get('user-profile', 'showProfile')->name('profile');
+            });
+
+            Route::get('wishlist' , WishlistController::class)->name('wishlist');
+        });
+        ############################ End Profile Routes ############################
     }
 );
 
-
-
-Auth::routes();
+// Auth::routes();
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -23,17 +23,7 @@ class ImageManger
             
         }
 
-        // upload single image
-        // if($request->hasFile('image')){
-        //     $image = $request->file('image');
-
-        //     self::deleteImageFromLocal($user->image);
-
-        //     $file = self::generateImageName($image);
-        //     $path = self::storeImageInLocal($image , 'users' , $file);
-
-        //     $user->update(['image'=>$path]);
-        // }
+        
     }
 
     // public static function deleteImages($post)

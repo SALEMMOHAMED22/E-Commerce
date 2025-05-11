@@ -15,6 +15,8 @@ class FaqController extends Controller
 
     public function showFaqsPage(){
         $faqs = $this->faqService->getFaqs();
+
         return view('website.faq', compact('faqs'));
+        
     }
 }

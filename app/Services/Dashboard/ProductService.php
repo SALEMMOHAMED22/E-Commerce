@@ -20,7 +20,6 @@ class ProductService
 
 public function createProductWithDetails($product , $productVariants , $images){
         $product = $this->productRepository->createProduct($product);
-
         // create product variants
         foreach($productVariants as $variant){
             $variant['product_id'] = $product->id;
@@ -28,16 +27,20 @@ public function createProductWithDetails($product , $productVariants , $images){
 
             // create product variant attributes
             foreach($variant['attribute_value_ids'] as $attributeValueId){
-                $this->productRepository->createProductVariantAttribute([
+                $this->productRepository->createVariantAttribute([
                     'product_variant_id' => $productVariant->id,
                     'attribute_value_id' => $attributeValueId,
                 ]);
             }
-            
-            
-            // create product images 
+
         }
+        // create product images 
+        
         $this->imageManager->uploadImages($images , $product , 'products');
+
+        // if (is_array($images) || is_object($images)) {
+        //     $this->imageManager->uploadImages($images, $product, 'products');
+        // }
 
 }
 

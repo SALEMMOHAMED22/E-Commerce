@@ -221,6 +221,7 @@
                     </div>
                 @endif
 
+                @if($has_variants == 0)
                 <div class="col-6">
                     <div class="form-group">
                         <label for="status">{{ __('dashboard.has_discount') }} :</label>
@@ -233,8 +234,10 @@
                         @enderror
                     </div>
                 </div>
+
+                @endif
                 {{-- depend on has discount --}}
-                @if ($has_discount == 1)
+                @if ($has_discount == 1 && $has_variants == 0)
                     <div class="col-6">
                         <div class="form-group">
                             <label for="discount">{{ __('dashboard.discount') }}</label>

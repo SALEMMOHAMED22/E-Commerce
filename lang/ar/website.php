@@ -20,7 +20,9 @@ return [
 'brands_of_categories' => 'براندات للفئات',
 'our_categories' => 'فئاتنا',
 'view_all' => 'اظهار الكل',
-    
+'product_added_to_wishlist' => 'تم اضافة المنتج للمفضلة',
+'product_removed_from_wishlist' => 'تم حذف المنتج من المفضلة',
+'wishlist' => 'المفضلة',
 
 
 

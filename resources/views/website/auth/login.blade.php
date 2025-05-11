@@ -19,20 +19,20 @@
                         </div>
                     @endif
 
-                    <form id="FormLogin" action="{{ route('website.login.post') }}" method="POST">
+                    <form id="formLogin" action="{{ route('website.login.post') }}" method="POST">
                         @csrf
                         <div class="review-inner-form">
                             <div class="review-form-name">
                                 <label for="email" class="form-label">{{ __('dashboard.email') }}</label>
-                                <input type="email" id="email" class="form-control" placeholder="{{ __('dashboard.email') }}" />
+                                <input name="email" type="email" id="email" class="form-control" placeholder="{{ __('dashboard.email') }}" />
                             </div>
                             <div class="review-form-name">
                                 <label for="password" class="form-label">{{ __('dashboard.password') }}</label>
-                                <input type="password" id="password" class="form-control" placeholder="{{ __('dashboard.password') }}" />
+                                <input name="password" type="password" id="password" class="form-control" placeholder="{{ __('dashboard.password') }}" />
                             </div>
                             <div class="review-form-name checkbox">
                                 <div class="checkbox-item">
-                                    <input type="checkbox" />
+                                    <input name="remember" type="checkbox" />
                                     <span class="address"> {{ __('dashboard.remember_me') }}</span>
                                 </div>
                                 <div class="forget-pass">
@@ -41,7 +41,7 @@
                             </div>
                         </div>
                         <div class="login-btn text-center">
-                            <a href="javascript:void(0)" onclick="document.getElementById('formLogin').submit"  class="shop-btn">{{ __('website.login') }}</a>
+                            <a href="javascript:void(0)" onclick="document.getElementById('formLogin').submit()"  class="shop-btn">{{ __('website.login') }}</a>
                             <span class="shop-account">{{ __('dashboard.dont_have_account') }}<a href="{{ route('website.register.get') }}">{{ __('dashboard.create_account') }}
                                     {{ __('dashboard.free') }}</a></span>
                         </div>

@@ -27,4 +27,8 @@ class HomeController extends Controller
         
         return view('website.index' , compact('sliders' , 'someCategories' , 'someBrands' , 'homePageProducts'));
     }
+
+    public function showShopPage(){
+        return view('website.shop');
+    }
 }

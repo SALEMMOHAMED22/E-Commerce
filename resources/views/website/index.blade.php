@@ -143,8 +143,9 @@
                             <div class="col-lg-3 col-sm-6">
                                 <div class="product-wrapper" data-aos="fade-up">
                                     <div class="product-img">
-                                        <img src="{{ asset('uploads/products/' . $item->images->first()->file_name) }}"
-                                            alt="product-img">
+                                        @if($item->images->first())
+                                        <img src="{{ asset('uploads/products/' . $item->images->first()->file_name) }}" alt="product-img">
+                                    @endif
                                         <div
                                             class="position-absolute top-0 start-0 bg-danger text-white py-1 px-2 mt-2 rounded">
                                             {{ $item->brand->name }}

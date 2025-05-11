@@ -9,8 +9,9 @@ class ProductService
 
 
     public function getProductBySlug($slug){
-        return Product::with('images' , 'brand' , 'category')
-        ->active()
+        return Product::with('images' , 'brand' , 'category' , 'productPreviews')
+
+        ->select('id' , 'name' ,'desc', 'small_desc' ,'slug' , 'price' , 'has_variants' , 'has_discount' ,'discount' ,'brand_id' , 'category_id')
         ->where('slug' , $slug)
         ->first();
     }
@@ -49,6 +50,21 @@ class ProductService
         ->latest()
         ->select('id' , 'name' ,'slug' , 'price' , 'has_variants' , 'has_discount' ,'discount' ,'brand_id' , 'category_id');
         if($limit){
+            return $products->paginate($limit);
+        }
+        return $products->paginate(30);
+    }
+
+    public function getRelatedProductsBySlug($slug , $limit = null ){
+
+        $categroy_id = Product::where('slug' , $slug)->first()->category_id;
+        $products =  Product::with('images' , 'brand' , 'category')
+        ->select('id' , 'name' ,'slug' , 'price' , 'has_variants' , 'has_discount' ,'discount' ,'brand_id' , 'category_id')
+        ->where('category_id' , $categroy_id)
+        ->latest();
+        
+        if($limit){
+
             return $products->paginate($limit);
         }
         return $products->paginate(30);

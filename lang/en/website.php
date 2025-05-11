@@ -32,7 +32,11 @@ return[
     'minuts' => 'Minutes',
     'seconds' => 'Seconds',
     'hours' => 'Hours',
-
+    'prodcut_added_to_wishlist' => 'Product Added To Wishlist Successfully',
+    'prodcut_removed_from_wishlist' => 'Product Removed From Wishlist Successfully',
+    'product_added_to_cart' => 'Product Added To Cart Successfully',
+    'product_removed_from_cart' => 'Product Removed From Cart Successfully',
+    'wishlist' => 'Wishlist',
 
     
 

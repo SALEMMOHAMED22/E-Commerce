@@ -23,7 +23,9 @@ class ProductController extends Controller
             abort(404);
         }
 
-        return view('website.show' , compact('product'));
+        $related_products = $this->ProductService->getRelatedProductsBySlug($product->slug , 4);
+
+        return view('website.show' , compact('product' , 'related_products'));
     }
 
     public function getProductsByType($type){
@@ -43,4 +45,8 @@ class ProductController extends Controller
         'flash_timer' => $type == 'flash-products-timer' ? true : false,
        ]);
     }
+
+
+
+  
 }
