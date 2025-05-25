@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades;
 use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
+use App\Models\Cart;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Session;
@@ -104,7 +105,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
@@ -112,6 +113,12 @@ class RegisterController extends Controller
             'governorate_id' => $data['governorate_id'],
             'city_id' => $data['city_id'],
         ]);
+
+        Cart::create([
+            'user_id' => $user->id,
+        ]);
+
+        return $user;
     }
 
     protected function registered(Request $request, $user)

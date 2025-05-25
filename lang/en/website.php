@@ -1,6 +1,6 @@
 <?php
 
-return[
+return [
 
     'register' => 'Register',
     'login' => 'Login',
@@ -24,7 +24,7 @@ return[
     'of' => 'Of',
     'results' => 'Results',
     'view_details' => 'View Details',
-    'no_products' => 'Empty! You don’t Cart any Products' ,
+    'no_products' => 'Empty! You don’t Cart any Products',
     'back_to_shop' => 'Back To Shop',
     'new_arrivals' => 'New Arrivals',
     'flash_sale' => 'Flash Sale',
@@ -37,9 +37,40 @@ return[
     'product_added_to_cart' => 'Product Added To Cart Successfully',
     'product_removed_from_cart' => 'Product Removed From Cart Successfully',
     'wishlist' => 'Wishlist',
+    'shop' => 'Shop',
+    'available' => 'Available',
+    'availability' => 'Availabilty',
+    'not_available' => 'Not Available',
+    'reviews' => 'Reviews',
+    'category' => 'Category',
+    'sku' => 'SKU',
+    'share_this' => 'Share This ',
+    'description' => 'Description',
+    'review' => 'Review',
+    'related_products' => 'Related Products',
+    'add_to_cart' => 'Add To Cart',
+    'add_to_wishlist' => 'Add To Wishlist',
+    'Product added to cart successfully' => 'Product added to cart successfully',
+    'variants' => 'Variants',
+    'select_variant' => 'Select Variant',
+    'in_stock' => 'In Stock',
+    'subtotal' => 'Subtotal',
+    'view_cart' => 'View Cart',
+    'checkout_now' => 'Checkout Now',
+    'clear_cart' => 'Clear Cart',
+    'product' => 'Product',
+    'price' => 'Price',
+    'quantity' => ' Quantity',
+    'total' => ' Total',
+    'attributes' => ' Attributes',
+    'action' => ' Action',
+    'cart' => 'Cart',
+    'no_attributes' => 'No Attributes',
+    'home' => 'Home',
 
-    
 
-    
-    
+
+
+
+
 ];

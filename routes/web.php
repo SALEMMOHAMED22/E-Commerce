@@ -8,6 +8,7 @@ use App\Http\Controllers\Website\HomeController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Website\AboutUsController;
 use App\Http\Controllers\Website\BrandController;
+use App\Http\Controllers\Website\CartController;
 use App\Http\Controllers\Website\CategoryController;
 use App\Http\Controllers\Website\ProfileController;
 use App\Http\Controllers\Website\DynamicPageController;
@@ -56,16 +57,21 @@ Route::group(
             Route::get('/{slug}/related-products ', 'getRelatedProductsBySlug')->name('related');
         });
         Route::get('/shop', [HomeController::class, 'showShopPage'])->name('shop');
-         ############################ Profile Routes ################################
-         Route::group(['middleware' => 'auth:web'], function () {
-
+        Route::group(['middleware' => 'auth:web'], function () {
+            
+            ############################ Profile Routes ################################
             Route::controller(ProfileController::class)->group(function () {
                 Route::get('user-profile', 'showProfile')->name('profile');
             });
+            ############################ End Profile Routes ############################
+            ############################ wishlist Routes ################################
+            Route::get('/wishlist' , WishlistController::class)->name('wishlist');
+            ############################ ُEnd wishlist Routes ################################
+            ############################ ُCart Routes ################################
+            Route::get('/cart' , [CartController::class , 'showCartPage'])->name('cart');
+            ############################ ُEnd Cart Routes ################################
 
-            Route::get('wishlist' , WishlistController::class)->name('wishlist');
         });
-        ############################ End Profile Routes ############################
     }
 );
 

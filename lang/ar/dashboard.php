@@ -300,6 +300,8 @@ return [
 'message'          => 'الرساله',
 'send'             => 'ارسال',
 'faq_questions'     => 'اسئلة شائعه',
+'agree_all_terms'  => 'اوافق على كل الشروط',
+'have_account' => 'لدي حساب',
 ];
 
  
