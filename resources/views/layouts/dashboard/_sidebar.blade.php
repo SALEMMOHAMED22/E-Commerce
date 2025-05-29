@@ -2,7 +2,7 @@
     <div class="main-menu-content">
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
             <li class=" nav-item"><a href="#"><i class="la la-home"></i><span class="menu-title"
-                        data-i18n="nav.dash.main">Dashboard</span><span
+                        data-i18n="nav.dash.main">{{ __('dashboard.dashboard') }}</span><span
                         class="badge badge badge-info badge-pill float-right mr-2">3</span></a>
                 <ul class="menu-content">
                     <li class=""><a class="menu-item" href="#" data-i18n="nav.dash.ecommerce">eCommerce</a>
@@ -65,7 +65,7 @@
                 </ul>
             </li>
 
-            <li class=" nav-item"><a href="index.html"><i class="la la-home"></i><span class="menu-title"
+            <li class=" nav-item"><a href="#"><i class="la la-home"></i><span class="menu-title"
                         data-i18n="nav.dash.main">{{ __('dashboard.users') }}</span><span
                         class="badge badge badge-info badge-pill float-right mr-2">#</span></a>
                 <ul class="menu-content">
@@ -74,6 +74,19 @@
                     </li>
                     {{-- <li><a class="menu-item" href="{{ route('dashboard.admins.create') }}"
                     data-i18n="nav.dash.crypto">{{ __('dashboard.create_admins') }}</a>
+            </li> --}}
+
+                </ul>
+            </li>
+            <li class=" nav-item"><a href="#"><i class="la la-home"></i><span class="menu-title"
+                        data-i18n="nav.dash.main">{{ __('dashboard.shipping_management') }}</span><span
+                        class="badge badge badge-info badge-pill float-right mr-2">#</span></a>
+                <ul class="menu-content">
+                    <li class=""><a class="menu-item" href="{{ route('dashboard.countries.index') }}"
+                            data-i18n="nav.dash.ecommerce">{{ __('dashboard.countries') }}</a>
+                    </li>
+                    {{-- <li><a class="menu-item" href="{{ route('dashboard.governorates.status') }}"
+                    data-i18n="nav.dash.crypto">{{ __('dashboard.governorates') }}</a>
             </li> --}}
 
                 </ul>
@@ -192,7 +205,8 @@
 
             </ul>
         </li>
-        <li class=" nav-item"><a href="#"><i class="la la-columns"></i><span class="menu-title"
+        </ul>
+        {{-- <li class=" nav-item"><a href="#"><i class="la la-columns"></i><span class="menu-title"
                     data-i18n="nav.page_layouts.main">Page layouts</span><span
                     class="badge badge badge-pill badge-danger float-right mr-2">New</span></a>
             <ul class="menu-content">
@@ -868,9 +882,9 @@
                 <li><a class="menu-item" href="card-ecommerce.html"
                         data-i18n="nav.cards.card_ecommerce">E-Commerce</a>
                 </li>
-            </ul>
+            </ul> --}}
         </li>
-        <li class=" nav-item"><a href="#"><i class="la la-compass"></i><span class="menu-title"
+        {{-- <li class=" nav-item"><a href="#"><i class="la la-compass"></i><span class="menu-title"
                     data-i18n="nav.content.main">Content</span></a>
             <ul class="menu-content">
                 <li><a class="menu-item" href="content-grid.html" data-i18n="nav.content.content_grid">Grid</a>
@@ -961,8 +975,8 @@
                         data-i18n="nav.components.component_spinners">Spinners</a>
                 </li>
             </ul>
-        </li>
-        <li class=" nav-item"><a href="#"><i class="la la-diamond"></i><span class="menu-title"
+        </li> --}}
+        {{-- <li class=" nav-item"><a href="#"><i class="la la-diamond"></i><span class="menu-title"
                     data-i18n="nav.extra_components.main">Extra Components</span></a>
             <ul class="menu-content">
                 <li><a class="menu-item" href="ex-component-sweet-alerts.html"
@@ -1074,8 +1088,8 @@
                         data-i18n="nav.form_elements.form_validation">Validation</a>
                 </li>
             </ul>
-        </li>
-        <li class=" nav-item"><a href="#"><i class="la la-file-text"></i><span class="menu-title"
+        </li> --}}
+        {{-- <li class=" nav-item"><a href="#"><i class="la la-file-text"></i><span class="menu-title"
                     data-i18n="nav.form_layouts.main">Form Layouts</span></a>
             <ul class="menu-content">
                 <li><a class="menu-item" href="form-layout-basic.html"
@@ -1103,8 +1117,8 @@
                         data-i18n="nav.form_layouts.form_layout_striped_labels">Striped Labels</a>
                 </li>
             </ul>
-        </li>
-        <li class=" nav-item"><a href="#"><i class="la la-paste"></i><span class="menu-title"
+        </li> --}}
+        {{-- <li class=" nav-item"><a href="#"><i class="la la-paste"></i><span class="menu-title"
                     data-i18n="nav.form_wizard.main">Form Wizard</span></a>
             <ul class="menu-content">
                 <li><a class="menu-item" href="form-wizard-circle-style.html"
@@ -1608,7 +1622,7 @@
                     class="la la-text-height"></i>
                 <span class="menu-title" data-i18n="nav.support_documentation.main">Documentation</span>
             </a>
-        </li>
+        </li> --}}
         </ul>
     </div>
 </div>

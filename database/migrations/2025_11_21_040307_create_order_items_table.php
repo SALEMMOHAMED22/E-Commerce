@@ -15,11 +15,14 @@ return new class extends Migration
             $table->id();
             $table->foreignId('order_id')->constrained('orders')->cascadeOnDelete();
             $table->foreignId('product_id')->nullable()->constrained('products')->nullOnDelete();
+
+            $table->foreignId('product_variant_id')->nullable()->constrained()->onDelete('cascade');
+            
             $table->string('product_name');
             $table->longText('product_desc');
             $table->integer('product_quantity');
             $table->decimal('product_price');
-            $table->json('data')->nullable();
+            $table->json('attributes')->nullable();
             
             $table->timestamps();
         });

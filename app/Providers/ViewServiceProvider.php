@@ -11,17 +11,18 @@ use App\Models\Category;
 use App\Models\Contact;
 use App\Models\Page;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
 class ViewServiceProvider extends ServiceProvider
 {
-   
+
     public function register(): void
     {
         //
     }
 
-   
+
     public function boot(): void
     {
 
@@ -70,8 +71,8 @@ class ViewServiceProvider extends ServiceProvider
 
         view()->composer('website.*', function ($view) {
 
-            $pages = Page::select('id' , 'slug' , 'title')->get();
-            
+            $pages = Page::select('id', 'slug', 'title')->get();
+
             view()->share([
                 'pages' => $pages,
             ]);
@@ -84,50 +85,50 @@ class ViewServiceProvider extends ServiceProvider
             'setting' => $setting,
         ]);
     }
-    
+
 
 
     public function firstOrCreateSetting()
     {
-        $getSetting = Setting::firstOr(function () {
-            return Setting::create([
-                'site_name' => [
-                    'ar' => 'متجر الكتروني',
-                    'en' => 'E-Commerce',
-                ],
-                'site_desc' => [
-                    'en' => 'This is E-Commerce website',
-                    'ar' => 'هذا موقع متجر الكتروني ',
-                ],
-                'site_address' => [
-                    'en' => 'Egypt , Cairo , shoubra',
-                    'ar' => 'مصر , القاهرة,  شبرا',
-                ],
-                'site_phone' => '01019907979',
-                'site_email' => 'e-commerce@gmail.com',
-                'email_support' => 'e-commerceSupport@gmail.com',
+        if (Schema::hasTable('settings')) {
 
-                // socail
-                'facebook_url' => 'https://www.facebook.com/',
-                'twitter_url' => 'https://www.twitter.com/',
-                'youtube_url' => 'https://www.youtube.com/',
 
-                'logo' => 'logo.png',
-                'favicon' => 'logo.png',
-                'site_copyright' => '©2025 Your E-commerce Name. All rights reserved.',
+            $getSetting = Setting::firstOr(function () {
+                return Setting::create([
+                    'site_name' => [
+                        'ar' => 'متجر الكتروني',
+                        'en' => 'E-Commerce',
+                    ],
+                    'site_desc' => [
+                        'en' => 'This is E-Commerce website',
+                        'ar' => 'هذا موقع متجر الكتروني ',
+                    ],
+                    'site_address' => [
+                        'en' => 'Egypt , Cairo , shoubra',
+                        'ar' => 'مصر , القاهرة,  شبرا',
+                    ],
+                    'site_phone' => '01019907979',
+                    'site_email' => 'e-commerce@gmail.com',
+                    'email_support' => 'e-commerceSupport@gmail.com',
 
-                'meta_description' => [
-                    'en' => '23 of PARAGE is equality of condition, blood, or dignity; specifically',
-                    'ar' => '23 of PARAGE is equality of condition, blood, or dignity; specifically ',
-                ],
-                'promotion_video_url' => 'https://www.youtube.com/embed/SsE5U7ta9Lw?rel=0&amp;controls=0&amp;showinfo=0',
+                    // socail
+                    'facebook_url' => 'https://www.facebook.com/',
+                    'twitter_url' => 'https://www.twitter.com/',
+                    'youtube_url' => 'https://www.youtube.com/',
 
-            ]);
-        });
-        return $getSetting;
+                    'logo' => 'logo.png',
+                    'favicon' => 'logo.png',
+                    'site_copyright' => '©2025 Your E-commerce Name. All rights reserved.',
+
+                    'meta_description' => [
+                        'en' => '23 of PARAGE is equality of condition, blood, or dignity; specifically',
+                        'ar' => '23 of PARAGE is equality of condition, blood, or dignity; specifically ',
+                    ],
+                    'promotion_video_url' => 'https://www.youtube.com/embed/SsE5U7ta9Lw?rel=0&amp;controls=0&amp;showinfo=0',
+
+                ]);
+            });
+            return $getSetting;
+        }
     }
 }
-
-
-
-    

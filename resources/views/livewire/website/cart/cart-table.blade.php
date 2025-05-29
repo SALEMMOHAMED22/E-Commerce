@@ -102,8 +102,8 @@
             </div>
             <div class="wishlist-btn cart-btn">
                 <a href="" wire:click.prevent="clearCart" class="clean-btn">{{ __('website.clear_cart') }}</a>
-                <a href="#" @click="$dispatch('updateCArt')" class="shop-btn update-btn">Update Cart</a>
-                <a href="checkout.html" class="shop-btn">Proceed to Checkout</a>
+                <a href="#" @click="$dispatch('updateCArt')" class="shop-btn update-btn">{{ __('website.update_cart') }}</a>
+                <a href="{{ route('website.checkout.get') }}" class="shop-btn">{{__('website.checkout_now')}}</a>
             </div>
         </div>
     @else

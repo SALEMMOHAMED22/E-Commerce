@@ -302,6 +302,8 @@ return [
 'faq_questions'     => 'اسئلة شائعه',
 'agree_all_terms'  => 'اوافق على كل الشروط',
 'have_account' => 'لدي حساب',
+'shipping_management' => 'اداره الشحن',
+'dashboard' => 'لوحه التحكم',
 ];
 
  

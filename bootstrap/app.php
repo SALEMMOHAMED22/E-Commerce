@@ -23,7 +23,7 @@ return Application::configure(basePath: dirname(__DIR__))
             if(request()->is('*/dashboard/*')){
                 return route('dashboard.login');
             }else{
-                return route('website.showLoginForm');
+                return route('website.login.get');
             }
         });
 

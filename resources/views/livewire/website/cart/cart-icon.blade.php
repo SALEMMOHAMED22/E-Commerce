@@ -62,7 +62,7 @@
             </div>
             <div class="cart-btn">
                 <a href="{{ route('website.cart') }}" class="shop-btn view-btn">{{ __('website.view_cart') }}</a>
-                <a href="checkout.html" class="shop-btn checkout-btn">{{ __('website.checkout_now') }}</a>
+                <a href="{{ route('website.checkout.get') }}" class="shop-btn checkout-btn">{{ __('website.checkout_now') }}</a>
             </div>
         </div>
     </div>

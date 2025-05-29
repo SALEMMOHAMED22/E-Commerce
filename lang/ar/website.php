@@ -46,6 +46,18 @@ return [
 'cart' => 'السلة',
 'no_attributes' => 'لا يوجد خصائص',
 'home' => 'الصفحة الرئيسية',
+'update_cart' => 'تحديث السلة',
+'checkout' => 'الدفع',
+'enter_coupon_code' => 'ادخل كود الخصم',
+'order_summary' => 'ملخص الطلب',
+'shipping_management' => 'ادارة التوصيل',
+'invalid_coupon_code' => 'كود الخصم غير صحيح',
+'save' => 'حفظ',
+'send' => 'ارسال',
+'billing_details' => 'تفاصيل الفاتورة',
+'street' => 'الشارع',
+'notice' => 'تنبيه',
+'place_order_now' => 'اضافة الطلب الان',
 
 
 ];

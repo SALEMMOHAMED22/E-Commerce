@@ -18,6 +18,7 @@ class CartIcon extends Component
             $this->dispatch('updateCart');
 
         }
+        $this->dispatch('orderSummaryRefresh');
     }
 
     #[On('refreshCartIcon')]

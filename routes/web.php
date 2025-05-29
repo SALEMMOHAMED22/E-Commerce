@@ -10,6 +10,7 @@ use App\Http\Controllers\Website\AboutUsController;
 use App\Http\Controllers\Website\BrandController;
 use App\Http\Controllers\Website\CartController;
 use App\Http\Controllers\Website\CategoryController;
+use App\Http\Controllers\Website\CheckoutController;
 use App\Http\Controllers\Website\ProfileController;
 use App\Http\Controllers\Website\DynamicPageController;
 use App\Http\Controllers\Website\ProductController;
@@ -69,9 +70,20 @@ Route::group(
             ############################ ُEnd wishlist Routes ################################
             ############################ ُCart Routes ################################
             Route::get('/cart' , [CartController::class , 'showCartPage'])->name('cart');
+
             ############################ ُEnd Cart Routes ################################
+            
+            ############################  ُcheckout Routes ################################
+            Route::get('checkout' , [CheckoutController::class , 'showCheckoutPage'])->name('checkout.get');
+            Route::post('checkout' , [CheckoutController::class , 'checkout'])->name('checkout.post');
+            ############################ ُEnd checkout Routes ################################
 
         });
+
+        Route::get('/test-flash', function () {
+    session()->flash('success', 'Flash message is working!');
+    return redirect()->route('website.checkout.get'); // غيرها حسب اسم المسار
+});
     }
 );
 

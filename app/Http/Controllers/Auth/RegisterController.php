@@ -59,6 +59,8 @@ class RegisterController extends Controller
             }
 
         event(new Registered($user = $this->create($request->all())));
+        //    Create User Cart
+        $user->cart()->create();
 
         $this->guard()->login($user);
 
@@ -114,9 +116,7 @@ class RegisterController extends Controller
             'city_id' => $data['city_id'],
         ]);
 
-        Cart::create([
-            'user_id' => $user->id,
-        ]);
+    
 
         return $user;
     }

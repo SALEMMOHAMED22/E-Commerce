@@ -67,8 +67,17 @@ return [
     'cart' => 'Cart',
     'no_attributes' => 'No Attributes',
     'home' => 'Home',
-
-
+    'update_cart' => 'Update Cart',
+    'checkout' => 'Checkout',
+    'enter_coupon_code' => 'Enter Coupon Code',
+    'order_summary' => 'Order Summary',
+    'invalid_coupon_code' => 'Invalid Coupon Code',
+    'save' => 'Save',
+    'send' => 'Send',
+    'billing_details' => 'Billing Details',
+    'street' => 'Street',
+    'notice' => 'Notice',
+    'place_order_now' => 'Place Order Now',
 
 
 

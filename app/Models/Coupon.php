@@ -28,23 +28,26 @@ class Coupon extends Model
     }
 
     public function scopeValid($query){
-        return $query->where('is_valid' , 1)
-        ->where('end_date' , '<' , now())
-        ->where('time_used' , '<' , 'limit');
+        return $query->where('is_active' , 1)
+        ->whereColumn('time_used' , '<' , 'limit')
+        ->where('end_date' , '>' , now())
+        ->where('start_date' , '<=' , now());
     }
 
     public function scopeNotValid($query){
-        return $query->where('is_valid' , 0)
+        return $query->where('is_active' , 0)
         ->where('end_date' , '>' , now())
         ->where('time_used' , '>' , 'limit');
     }
 
     public function couponIsValid(){
-        return $this->is_valid == 1 && $this->time_used < $this->limit && $this->end_date < now();
+        return $this->is_active == 1 && $this->time_used < $this->limit && $this->end_date > now() && $this->start_date <= now();;
     }
 
     public function status(){
         return $this->is_active == 1 ? 'Active':'In Active';
     }
+
+    
     
 }

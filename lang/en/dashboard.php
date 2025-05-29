@@ -288,6 +288,7 @@ return [
     'faq_questions'     => 'Faq Questions',
     'agree_all_terms'  => 'Agree All Terms',
     'have_account' => 'Have Account',
+    'shipping_management' => 'Shipping Management',
     
     
 
