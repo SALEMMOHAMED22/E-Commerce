@@ -70,7 +70,6 @@ Route::group(
             ############################ ُEnd wishlist Routes ################################
             ############################ ُCart Routes ################################
             Route::get('/cart' , [CartController::class , 'showCartPage'])->name('cart');
-
             ############################ ُEnd Cart Routes ################################
             
             ############################  ُcheckout Routes ################################
@@ -80,12 +79,15 @@ Route::group(
 
         });
 
-        Route::get('/test-flash', function () {
-    session()->flash('success', 'Flash message is working!');
-    return redirect()->route('website.checkout.get'); // غيرها حسب اسم المسار
-});
+      
     }
 );
+
+
+Route::get('checkout/callback' , [CheckoutController::class , 'callback'])->name('checkout.callback');  
+Route::get('checkout/error' , [CheckoutController::class , 'error'])->name('checkout.error');
+
+
 
 // Auth::routes();
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

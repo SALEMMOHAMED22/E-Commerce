@@ -4,14 +4,27 @@ namespace App\Services\Website;
 
 use App\Models\Cart;
 use App\Models\City;
-use App\Models\Country;
-use App\Models\Coupon;
-use App\Models\Governorate;
 use App\Models\Order;
+use App\Models\Coupon;
+use App\Models\Country;
+use App\Models\Governorate;
+use App\Models\Transaction;
 use App\Models\ShippingGovernorate;
+use Illuminate\Support\Facades\Auth;
 
 class OrderService
 {
+
+    public function createTransaction($data , $orderId){
+
+        $transaction = Transaction::create([
+            'user_id' => Auth::guard('web')->user()->id,
+            'order_id' => $orderId,
+            'transaction_id' => $data['Data']['InvoiceId'],
+            'payment_method' => 'payment',
+        ]);
+        return $transaction;
+    }
 
     public function createOrder(array $shipping)
     {
@@ -70,12 +83,41 @@ class OrderService
         return $order;
     }
 
+    public function getInvoiceValue($address)
+    {
+        $governorateName = $this->getLocationName(Governorate::class, $address['governorate_id']);
+
+        $cart = $this->getUserCart();
+        
+        if (!$cart || $cart->items->isEmpty()) {
+            return null;
+        }
+
+        $subTotal = $cart->items->sum(fn($item) => $item->price * $item->quantity);
+
+        $shippingPrice = $this->getShippingPrice($address['governorate_id']);
+
+        //  Check if user has coupon 
+        if ($coupon_exist = $cart->coupon != null) {
+            $coupon = Coupon::valid()->where('code', trim($cart->coupon, ' '))->first();
+            if ($coupon) {
+                $subTotal = $subTotal - ($subTotal * $coupon->discount_precentage / 100);
+            }
+        }
+
+
+
+        $totalPrice = $subTotal + $shippingPrice;
+
+        return $totalPrice;
+    }
+
     private function getLocationName($modelClass, $id)
     {
         return $modelClass::find($id)?->name;
     }
 
-    private function getUserCart(): ?Cart
+    private function getUserCart(): ? Cart
     {
         return Cart::with('items.product')->where('user_id', auth('web')->user()->id)->first();
     }
@@ -98,7 +140,7 @@ class OrderService
         }
     }
 
-    private function clearUserCart(Cart $cart): void
+    public function clearUserCart(Cart $cart): void
     {
         $cart->items()->delete();
         $cart->update(['coupon' => null]); //clear coupon 
