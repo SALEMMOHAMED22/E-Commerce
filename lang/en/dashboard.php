@@ -289,7 +289,35 @@ return [
     'agree_all_terms'  => 'Agree All Terms',
     'have_account' => 'Have Account',
     'shipping_management' => 'Shipping Management',
-    
+    'orders_table' => 'Orders Table',
+    'user_name' => 'User Name',
+    'user_email' => 'User Email',
+    'user_phone' => 'User Phone',
+    'street' => 'Street',
+    'shipping_price' => 'Shipping Price',
+    'sub_total' => 'Sub Total',
+    'total_price' => 'Total Price',
+    'note' => 'Note',
+    'coupon' => 'Coupon',
+    'coupon_discount' => 'Coupon Discount',
+    'no_coupon' => 'No Coupon',
+    'pending' => 'Pending',
+    'paid' => 'Paid',
+    'delivered' => 'Delivered',
+    'all_status' => 'All Status',
+    'order_items' => 'Order Items',
+    'mark_as_delivered' => 'Mark As Delivered',
+    'delete_order' => 'Delete Order',
+    'order_details' => 'Order Details',
+    'product_quantity' => 'Product Quantity',
+    'product_price' => 'Product Price',
+    'product_price_for_quantity' => 'Product Price For Quantity',
+    'no_attributes' => 'No Attributes',
+    'shipping_address' => 'Shipping Address',
+    'customer_info' => 'Customer Info',
+    'confirm_mark_as_delivered' => 'Confirm Mark As Delivered',
+
+
     
 
     

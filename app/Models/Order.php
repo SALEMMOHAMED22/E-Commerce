@@ -16,5 +16,14 @@ class Order extends Model
       public function orderItems(){
           return $this->hasMany(OrderItem::class);
       }
+      public function user(){
+          return $this->belongsTo(User::class);
+      }
+      public function getCreatedAtAttribute($value){
+          return date('Y-m-d', strtotime($value));
+      }
+      public function getTotalAttribute($value){
+          return number_format($value);
+      }
       
 }

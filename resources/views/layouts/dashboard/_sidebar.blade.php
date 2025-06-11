@@ -154,7 +154,7 @@
                         data-i18n="nav.dash.ecommerce">{{ __('dashboard.faqs') }}</a>
                 </li>
                 <li><a class="menu-item" href="{{ route('dashboard.faq.questions.index') }}"
-            data-i18n="nav.dash.crypto">{{ __('dashboard.faq_questions') }}</a> </li>
+                        data-i18n="nav.dash.crypto">{{ __('dashboard.faq_questions') }}</a> </li>
             </ul>
         </li>
         <li class=" nav-item"><a href="index.html"><i class="la la-home"></i><span class="menu-title"
@@ -205,6 +205,21 @@
 
             </ul>
         </li>
+        <li class=" nav-item"><a href="index.html"><i class="la la-home"></i><span class="menu-title"
+                    data-i18n="nav.dash.main">{{ __('dashboard.orders') }}</span><span
+                    class="badge badge badge-info badge-pill float-right mr-2"></span></a>
+            <ul class="menu-content">
+                <li class=""><a class="menu-item" href="{{ route('dashboard.orders.index') }}"
+                        data-i18n="nav.dash.ecommerce">{{ __('dashboard.orders') }}</a>
+                </li>
+                {{-- <li><a class="menu-item" href="{{ route('dashboard.pages.create') }}"
+                        data-i18n="nav.dash.crypto">{{ __('dashboard.create_page') }}</a>
+                </li> --}}
+
+            </ul>
+        </li>
+
+
         </ul>
         {{-- <li class=" nav-item"><a href="#"><i class="la la-columns"></i><span class="menu-title"
                     data-i18n="nav.page_layouts.main">Page layouts</span><span

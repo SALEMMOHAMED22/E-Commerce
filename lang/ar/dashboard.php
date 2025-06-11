@@ -304,6 +304,27 @@ return [
 'have_account' => 'لدي حساب',
 'shipping_management' => 'اداره الشحن',
 'dashboard' => 'لوحه التحكم',
+'orders_table' => 'جدول الطلبات',
+    'user_name' => 'اسم المستخدم',
+    'user_email' => 'بريد المستخدم',
+    'user_phone' => 'هاتف المستخدم',
+    'street' => 'الشارع',
+    'shipping_price' => 'سعر الشحن',
+    'sub_total' => 'المجموع الفرعي',
+    'total_price' => 'المجموع الكلي',
+    'note' => 'ملاحظه',
+    'coupon' => 'الكوبون',
+    'coupon_discount' => 'خصم الكوبون',
+    'no_coupon' => 'لا يوجد كوبون',
+    'pending' => 'قيد الانتظار',
+    'paid' => 'مدفوع',
+    'delivered' => 'تم التوصيل',
+    'cancelled' => 'ملغي',
+    'all_status' => 'كل الحالات',
+    
+    
+    
+
 ];
 
  

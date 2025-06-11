@@ -13,7 +13,8 @@
                     <div class="row breadcrumbs-top d-inline-block">
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{ route('dashboard.welcome') }}">{{ __('dashboard.dashboard') }}</a>
+                                <li class="breadcrumb-item"><a
+                                        href="{{ route('dashboard.welcome') }}">{{ __('dashboard.dashboard') }}</a>
                                 </li>
                                 <li class="breadcrumb-item"><a href="{{ route('dashboard.products.index') }}">
                                         {{ __('dashboard.products') }}</a>
@@ -127,11 +128,13 @@
                                                         </div>
                                                     @endforeach
                                                 </div>
-                                                <a class="carousel-control-prev" href="#productImageSlider" role="button" data-slide="prev">
+                                                <a class="carousel-control-prev" href="#productImageSlider" role="button"
+                                                    data-slide="prev">
                                                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                                     <span class="sr-only">Previous</span>
                                                 </a>
-                                                <a class="carousel-control-next" href="#productImageSlider" role="button" data-slide="next">
+                                                <a class="carousel-control-next" href="#productImageSlider" role="button"
+                                                    data-slide="next">
                                                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                                     <span class="sr-only">Next</span>
                                                 </a>
@@ -146,64 +149,68 @@
 
 
                                     </div>
-                                     <!-- Variants Section -->
-                            @if ($product->has_variants)
-                            <div class="mt-5">
-                                <h4>Product Variants</h4>
-                                <div class="table-responsive">
-                                    <table class="table table-bordered table-striped">
-                                        <thead class="thead-light">
-                                            <tr>
-                                                <th>#</th>
-                                                <th>Price</th>
-                                                <th>Stock</th>
-                                                <th>Attributes</th>
-                                                <th>Actions</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach ($product->variants as $variant)
-                                            <tr>
-                                                <td>{{ $loop->iteration }}</td>
-                                                <td>${{ $variant->price }}</td>
-                                                <td>{{ $variant->stock }}</td>
-                                                <td>
-                                                    @foreach ($variant->VariantAttributes as $variantAttribute)
-                                                    <span class="badge badge-primary">
-                                                        {{ $variantAttribute->attributeValue->attribute->name }}: {{ $variantAttribute->attributeValue->value }}
-                                                    </span>
-                                                    @endforeach
-                                                </td>
-                                                <td>
-                                                    <a href="{{ route('dashboard.products.variants.delete', $variant->id) }}" class="btn btn-danger btn-sm"><i class="la la-trash"></i></a>
-                                                </td>
-                                            </tr>
-                                            @endforeach
-                                        </tbody>
-                                    </table>
+                                    <!-- Variants Section -->
+                                    @if ($product->has_variants)
+                                        <div class="mt-5">
+                                            <h4>Product Variants</h4>
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered table-striped">
+                                                    <thead class="thead-light">
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th>Price</th>
+                                                            <th>Stock</th>
+                                                            <th>Attributes</th>
+                                                            <th>Actions</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @foreach ($product->variants as $variant)
+                                                            <tr>
+                                                                <td>{{ $loop->iteration }}</td>
+                                                                <td>${{ $variant->price }}</td>
+                                                                <td>{{ $variant->stock }}</td>
+                                                                <td>
+                                                                    @foreach ($variant->VariantAttributes as $variantAttribute)
+                                                                        <span class="badge badge-primary">
+                                                                            {{ $variantAttribute->attributeValue->attribute->name }}:
+                                                                            {{ $variantAttribute->attributeValue->value }}
+                                                                        </span>
+                                                                    @endforeach
+                                                                </td>
+                                                                <td>
+                                                                    <a href="{{ route('dashboard.products.variants.delete', $variant->id) }}"
+                                                                        class="btn btn-danger btn-sm"><i
+                                                                            class="la la-trash"></i></a>
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    @else
+                                        <p class="text-muted">This product has no variants.</p>
+                                    @endif
                                 </div>
                             </div>
-                            @else
-                            <p class="text-muted">This product has no variants.</p>
-                            @endif
                         </div>
-                                </div>
-                            </div>
 
-                            <div class="card-footer text-right">
-                                <a href="{{ route('dashboard.products.index') }}" class="btn btn-secondary">
-                                    <i class="fa fa-arrow-left"></i> Back to Products
-                                </a>
-                            </div>
+                        <div class="card-footer text-right">
+                            <a href="{{ route('dashboard.products.index') }}" class="btn btn-secondary">
+                                <i class="fa fa-arrow-left"></i> Back to Products
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    </div>
 
     <!-- Fullscreen Modal -->
-    <div class="modal fade" id="fullscreenModal" tabindex="-1" role="dialog" aria-labelledby="fullscreenModalLabel" aria-hidden="true">
+    <div class="modal fade" id="fullscreenModal" tabindex="-1" role="dialog" aria-labelledby="fullscreenModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -217,7 +224,8 @@
                         <div class="carousel-inner">
                             @foreach ($product->images as $key => $image)
                                 <div class="carousel-item {{ $key === 0 ? 'active' : '' }}">
-                                    <img src="{{ asset('uploads/products/'.$image->file_name) }}" class="d-block w-100" alt="Fullscreen Image">
+                                    <img src="{{ asset('uploads/products/' . $image->file_name) }}" class="d-block w-100"
+                                        alt="Fullscreen Image">
                                 </div>
                             @endforeach
                         </div>
@@ -238,7 +246,6 @@
 @endsection
 
 @push('js')
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 @endpush
-
