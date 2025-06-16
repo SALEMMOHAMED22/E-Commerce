@@ -812,6 +812,16 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
   @yield('content')
   <!-- ////////////////////////////////////////////////////////////////////////////-->
   @include('layouts.dashboard._footer')
+
+  @if(Auth::guard('admin')->check())
+    <script>
+      layout = "admin";
+      adminId = "{{ Auth::guard('admin')->user()->id }}";
+      showOrderRoute = "{{ route('dashboard.orders.show', ':id') }}";
+    </script>
+  @endif
+
+  <script src="{{ asset('build/assets/app-0jVJ0Y4G.js') }}"></script>
  @include('layouts.dashboard._script')
  @stack('js')
 </body>

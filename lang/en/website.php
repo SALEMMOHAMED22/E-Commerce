@@ -78,6 +78,20 @@ return [
     'street' => 'Street',
     'notice' => 'Notice',
     'place_order_now' => 'Place Order Now',
+    'english' => 'English',
+    'arabic' => 'Arabic',
+    'order_tracking' => 'Order Tracking',
+    'support' => 'Support',
+    'need_help' => 'Need Help?',
+    'call_us' => 'Call Us',
+    'all_categories' => 'All Categories',
+    'pages' => 'Pages',
+    'blogs' => 'Blogs',
+    'contact_us' => 'Contact Us',
+    'profile' => 'Profile',
+
+
+
 
 
 

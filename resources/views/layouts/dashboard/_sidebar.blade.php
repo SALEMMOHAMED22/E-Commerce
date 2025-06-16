@@ -5,7 +5,7 @@
                         data-i18n="nav.dash.main">{{ __('dashboard.dashboard') }}</span><span
                         class="badge badge badge-info badge-pill float-right mr-2">3</span></a>
                 <ul class="menu-content">
-                    <li class=""><a class="menu-item" href="#" data-i18n="nav.dash.ecommerce">eCommerce</a>
+                    <li class=""><a class="menu-item" href="{{ route('dashboard.welcome') }}" data-i18n="nav.dash.ecommerce">eCommerce</a>
                     </li>
 
                 </ul>

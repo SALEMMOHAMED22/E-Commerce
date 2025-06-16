@@ -58,6 +58,19 @@ return [
 'street' => 'الشارع',
 'notice' => 'تنبيه',
 'place_order_now' => 'اضافة الطلب الان',
+'english' => 'الانجليزية',
+'arabic' => 'العربية',
+'order_tracking' => 'تتبع الطلب',
+'support' => 'الدعم',
+'need_help' => 'تحتاج مساعدة؟',
+'call_us' => 'اتصل بنا',
+'all_categories' => 'كل الفئات',
+'pages' => 'الصفحات',
+    'blogs' => 'المدونات',
+    'contact_us' => 'اتصل بنا',
+    'profile' => 'الملف الشخصي',
+
+
 
 
 ];

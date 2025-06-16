@@ -321,8 +321,24 @@ return [
     'delivered' => 'تم التوصيل',
     'cancelled' => 'ملغي',
     'all_status' => 'كل الحالات',
-    
-    
+    'order_items' => 'عناصر الطلب',
+    'mark_as_delivered' => 'تحديث الحاله للتوصيل',
+    'delete_order' => 'حذف الطلب',
+    'order_details' => 'تفاصيل الطلب',
+    'product_quantity' => 'كمية المنتج',
+    'product_price' => 'سعر المنتج',
+    'product_price_for_quantity' => 'سعر المنتج لكمية',
+    'no_attributes' => 'لا يوجد خصائص',
+    'shipping_address' => 'عنوان الشحن',
+    'customer_info' => 'معلومات العميل',
+    'confirm_mark_as_delivered' => 'تاكيد تحديث الحاله للتوصيل',
+    'notification' => 'الاشعارات',
+    'notification_table' => 'جدول الاشعارات',
+    'notification_details' => 'تفاصيل الاشعار',
+    'notification_title' => 'عنوان الاشعار',
+    'notification_message' => 'رساله الاشعار',
+    'updated_successfully' => 'تم التحديث بنجاح',
+
     
 
 ];

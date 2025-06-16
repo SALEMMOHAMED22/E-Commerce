@@ -8,7 +8,7 @@
     <section class="blog about-blog">
         <div class="container">
             <div class="blog-bradcrum">
-                <span><a href="{{ route('home') }}">{{ __('dashboard.home') }}</a></span>
+                <span><a href="{{ route('website.home') }}">{{ __('dashboard.home') }}</a></span>
                 <span class="devider">/</span>
                 <span><a href="javascript:void(0)">{{ __('website.faqs') }}</a></span>
             </div>

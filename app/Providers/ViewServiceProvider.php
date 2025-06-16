@@ -72,9 +72,14 @@ class ViewServiceProvider extends ServiceProvider
         view()->composer('website.*', function ($view) {
 
             $pages = Page::select('id', 'slug', 'title')->get();
+            $categories = $this->getCategories();
+            $categoriesChildren = $this->getCategoriesChildrenNavbar();
 
             view()->share([
                 'pages' => $pages,
+                'categories_children' => $categoriesChildren,
+
+                'categories' => $categories,
             ]);
         });
 
@@ -130,5 +135,21 @@ class ViewServiceProvider extends ServiceProvider
             });
             return $getSetting;
         }
+    }
+
+    public function getCategories(){
+        $categories = Category::active()->select('id', 'slug', 'name' , 'icon')->get();
+        return $categories;
+    }
+
+    public function getCategoriesChildrenNavbar(){
+        $categories = Category::withCount('children')->having('children_count' , '>' , 2)
+        ->active()
+        ->where('parent' , null)->limit(4)->get();
+        foreach ($categories as $category){
+            $category->children = $category->children()->limit(4)->get();
+        }
+
+        return $categories;
     }
 }

@@ -316,6 +316,14 @@ return [
     'shipping_address' => 'Shipping Address',
     'customer_info' => 'Customer Info',
     'confirm_mark_as_delivered' => 'Confirm Mark As Delivered',
+    'notification' => 'Notification',
+    'notification_table' => 'Notification Table',
+    'notification_details' => 'Notification Details',
+    'read' => 'Read',
+    'unread' => 'Unread',
+    'mark_as_read' => 'Mark As Read',
+    'mark_as_unread' => 'Mark As Unread',
+    'updated_successfully' => 'Updated Successfully',
 
 
     

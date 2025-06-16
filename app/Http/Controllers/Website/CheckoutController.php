@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers\Website;
 
+use App\Models\Admin;
+use App\Models\Order;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Services\Website\OrderService;
 use Illuminate\Support\Facades\Session;
 use App\Http\Requests\OrderShippingRequest;
-use App\Models\Order;
-use App\Models\Transaction;
+use App\Notifications\CreateOrderNotification;
 use App\Services\Website\MyFatoorahService;
 
 class CheckoutController extends Controller
@@ -100,6 +102,14 @@ class CheckoutController extends Controller
             ]);
 
             $this->orderService->clearUserCart(auth('web')->user()->cart);
+
+            $order = Order::where('id', $order_id)->first();
+            $admins = Admin::all();
+
+            foreach ($admins as $admin) {
+                $admin->notify(new CreateOrderNotification($order));
+
+            }
 
             Session::flash('success', 'تم الدفع بنجاح راقب حالة الاوردر');
             return redirect()->route('website.checkout.get');

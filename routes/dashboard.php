@@ -27,7 +27,7 @@ use App\Http\Controllers\Dashboard\Auth\AuthController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\Dashboard\Auth\ResetPasswordController;
 use App\Http\Controllers\Dashboard\Auth\ForgetPasswordController;
-
+use App\Http\Middleware\MarkNotificationAsRead;
 
 Route::get('/', function () {
     return view('welcome');
@@ -198,7 +198,7 @@ Route::group(
         ######################### Order Routes #################################
         // Route::group(['middleware' => 'can:orders'], function () {
           Route::get('orders' , [OrderController::class , 'index'])->name('orders.index');
-          Route::get('orders/{id}' , [OrderController::class , 'show'])->name('orders.show');
+          Route::get('orders/{id}' , [OrderController::class , 'show'])->name('orders.show')->middleware(MarkNotificationAsRead::class);
           Route::delete('orders/{id}' , [OrderController::class , 'destroy'])->name('orders.destroy');
           Route::get('orders/markDelivered/{id}' , [OrderController::class , 'markDelivered'])->name('orders.markDelivered');
           Route::get('orders-get-all' , [OrderController::class , 'getAll'])->name('orders.all');

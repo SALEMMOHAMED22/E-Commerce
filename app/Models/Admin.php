@@ -48,19 +48,24 @@ class Admin extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    public function receivesBroadcastNotificationsOn(): string
+    {
+        return 'admins.' . $this->id;
+    }
 
     public function role()
     {
-        return $this->belongsTo(Role::class,'role_id');
+        return $this->belongsTo(Role::class, 'role_id');
     }
 
-    public function getStatusAttribute($value){
+    public function getStatusAttribute($value)
+    {
         return $value == 1 ? 'Active' : 'Inactve';
     }
 
     // public function hasAccess($config_permission){
     //     $role = $this->role;
-        
+
     //     if(!$role){
     //         return false;
     //     }
@@ -72,23 +77,26 @@ class Admin extends Authenticatable
     //     }
     // }
     public function hasAccess($config_permission)
-{
-    $role = $this->role;
+    {
+        $role = $this->role;
 
-    if (!$role) {
-        Log::info("User has no role assigned");
-        return false; // User has no role
+        if (!$role) {
+            Log::info("User has no role assigned");
+            return false; // User has no role
+        }
+
+        Log::info("User's role: {$role->role['en']}");
+
+        if (in_array($config_permission, $role->permission)) {
+            Log::info("Permission {$config_permission} granted");
+            return true;
+        }
+
+        Log::info("Permission {$config_permission} denied");
+        return false;
     }
 
-    Log::info("User's role: {$role->role['en']}");
 
-    if (in_array($config_permission, $role->permission)) {
-        Log::info("Permission {$config_permission} granted");
-        return true;
-    }
 
-    Log::info("Permission {$config_permission} denied");
-    return false;
-}
-
+    
 }
