@@ -818,10 +818,13 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
       layout = "admin";
       adminId = "{{ Auth::guard('admin')->user()->id }}";
       showOrderRoute = "{{ route('dashboard.orders.show', ':id') }}";
+      showContactRoute = "{{ route('dashboard.contacts.index') }}";
     </script>
   @endif
 
-  <script src="{{ asset('build/assets/app-0jVJ0Y4G.js') }}"></script>
+
+  
+  <script src="{{ asset('build/assets/app-CteoeUzV.js') }}"></script>
  @include('layouts.dashboard._script')
  @stack('js')
 </body>

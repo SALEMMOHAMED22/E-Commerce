@@ -1,20 +1,22 @@
 <?php
 
 // use Illuminate\Support\Facades\Auth;
+use Livewire\Livewire;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Website\FaqController;
+use App\Http\Controllers\Website\CartController;
 use App\Http\Controllers\Website\HomeController;
 use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\Website\AboutUsController;
 use App\Http\Controllers\Website\BrandController;
-use App\Http\Controllers\Website\CartController;
+use App\Http\Controllers\Website\AboutUsController;
+use App\Http\Controllers\Website\ContactController;
+use App\Http\Controllers\Website\ProductController;
+use App\Http\Controllers\Website\ProfileController;
 use App\Http\Controllers\Website\CategoryController;
 use App\Http\Controllers\Website\CheckoutController;
-use App\Http\Controllers\Website\ProfileController;
-use App\Http\Controllers\Website\DynamicPageController;
-use App\Http\Controllers\Website\ProductController;
 use App\Http\Controllers\Website\WishlistController;
+use App\Http\Controllers\Website\DynamicPageController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 
@@ -73,10 +75,18 @@ Route::group(
             ############################ ُEnd Cart Routes ################################
             
             ############################  ُcheckout Routes ################################
-            Route::get('checkout' , [CheckoutController::class , 'showCheckoutPage'])->name('checkout.get');
+            Route::get('checkout' , [CheckoutController::class , 'showCheckoutPage'])->name('checkout.get');    
             Route::post('checkout' , [CheckoutController::class , 'checkout'])->name('checkout.post');
             ############################ ُEnd checkout Routes ################################
 
+            ############################  contact Routes ################################
+            Route::get('contact' , [ContactController::class , 'index'])->name('contact.get');
+            ############################ ُEnd contact Routes ################################
+
+
+              Livewire::setUpdateRoute(function ($handle) {
+            return Route::post('/livewire/update', $handle);
+        });
         });
 
       

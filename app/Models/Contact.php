@@ -5,12 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Notifications\Notifiable;
 
 class Contact extends Model
 {
-    use HasFactory , SoftDeletes;
+    use HasFactory , SoftDeletes , Notifiable;
 
-    protected $fillable = ['id' , 'email' , 'client_name' , 'subject' , 'message' , 'is_read' , 'reply_status' , 'softDeletes'];
+    protected $fillable = ['id' , 'email' , 'name' , 'subject' , 'message' , 'is_read' , 'reply_status' , 'softDeletes' , 'user_id' , 'phone'  ];
 
 
     public function scopeRead($query)

@@ -176,7 +176,7 @@ Route::group(
         // Route::group(['middleware' => 'Can:contact'] , function(){
 
         Route::get('contacts', [ContactController::class, 'index'])
-            ->name('contacts.index');
+            ->name('contacts.index')->middleware(MarkNotificationAsRead::class);
         // });
         ######################### contacts End #################################
 

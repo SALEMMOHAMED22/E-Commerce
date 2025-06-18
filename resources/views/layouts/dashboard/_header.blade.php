@@ -128,7 +128,8 @@
                                         <div class="card-header p-0 pb-2 border-0" id="headingThree" role="tab">
                                             <a class="collapsed" data-toggle="collapse" data-parent="#accordionWrap"
                                                 href="#accordionThree" aria-expanded="false"
-                                                aria-controls="accordionThree">Accordion Item #3</a></div>
+                                                aria-controls="accordionThree">Accordion Item #3</a>
+                                        </div>
                                         <div class="card-collapse collapse" id="accordionThree" role="tabpanel"
                                             aria-labelledby="headingThree" aria-expanded="false">
                                             <div class="card-content">
@@ -289,15 +290,36 @@
                                                 </div>
                                             </div>
                                         </a>
+                                    @elseif ($notification->type === 'ContactNotification')
+                                        <a
+                                            href="{{ route('dashboard.contacts.index') }}?notify_admin={{ $notification->id }}">
+                                            <div class="media">
+                                                <div class="media-left align-self-center"><i
+                                                        class="ft-alert-triangle icon-bg-circle bg-yellow bg-darken-4"></i>
+                                                </div>
+                                                <div class="media-body">
+                                                    <h6 class="media-heading">{{ $notification->data['message'] }}
+                                                    </h6>
+                                                    <p class="notification-text font-small-3 text-muted">
+                                                        Contact From : {{ $notification->data['user_name'] }} ,
+                                                        E - {{ $notification->data['email'] }}
+                                                    </p>
+                                                    <small>
+                                                        <time class="media-meta text-muted"
+                                                            datetime="{{ $notification->created_at }}">{{ $notification->created_at->diffForHumans() }}</time>
+                                                    </small>
+                                                </div>
+                                            </div>
+                                        </a>
                                     @endif
                                 @empty
-                                <a href="javascript:void(0)">
-                                  <div class="media">
-                                    <div class="media-body">
-                                      <h6 class = "media-heading text-center">No New Notifications</h6>
-                                    </div>
-                                  </div>
-                                </a>
+                                    <a href="javascript:void(0)">
+                                        <div class="media">
+                                            <div class="media-body">
+                                                <h6 class = "media-heading text-center">No New Notifications</h6>
+                                            </div>
+                                        </div>
+                                    </a>
                                 @endforelse
 
 

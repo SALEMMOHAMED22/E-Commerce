@@ -647,7 +647,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('website.faqs.index') }}">
+                            <a href="{{ route('website.contact.get') }}">
                                 <span class="list-text">{{ __('website.contact_us') }}</span>
                             </a>
                         </li>

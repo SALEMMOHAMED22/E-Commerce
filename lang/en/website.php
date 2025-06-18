@@ -89,6 +89,17 @@ return [
     'blogs' => 'Blogs',
     'contact_us' => 'Contact Us',
     'profile' => 'Profile',
+    'name' => 'Name',
+    'email' => 'Email',
+    'phone' => 'Phone',
+    'address' => 'Address',
+    'subject' => 'Subject',
+    'message' => 'Message',
+    'logged_in_successfully' => 'Logged In Successfully',
+    'contact' => 'Contact',
+    'try_again_later' => 'Try Again Later',
+    'contact_sent_successfully' => 'Contact Sent Successfully',
+    
 
 
 
